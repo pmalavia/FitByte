@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:padding="5dip">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Give your workout a name "
+            android:id="@+id/editText"
+            android:textSize="20sp"/>
+
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:text="Chest Exercises"
+            android:id="@+id/button_Chest"
+            android:padding="5dip" />
+
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:text="Back Exercises"
+            android:id="@+id/button_Back"
+            android:padding="5dip" />
+
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:text="Shoulder Exercises"
+            android:id="@+id/button_Shoulder"
+            android:padding="5dip" />
+
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:text="Bicep Exercises"
+            android:id="@+id/button_Bicep"
+            android:padding="5dip" />
+
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:text="Tricep Exercises"
+            android:id="@+id/button_Tricep"
+            android:padding="5dip" />
+
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:text="Leg Exercises"
+            android:id="@+id/button_Leg"
+            android:padding="5dip" />
+
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:text="Abs Exercises"
+            android:id="@+id/button_Abs"
+            android:padding="5dip" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Current Workout: "
+            android:textSize="22dp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:textSize="20dp"/>
+
+
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:text="Submit Workout"
+            android:id="@+id/submit"
+            android:padding="5dip"
+            android:layout_marginTop="20dp"
+            android:background="#ff0dc9ff"
+            android:onClick="submitClicked"/>
+
+    </LinearLayout>
+</ScrollView>

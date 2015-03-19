@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.fitbyte.fitbyte" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".UserProfile"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Homepage"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".Calender"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".WorkoutMain"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".MyWorkout"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".NewWorkout"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".Diary"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity
+            android:name=".EditProfile"
+            android:label="@string/app_name" >
+        </activity>
+    </application>
+
+</manifest>

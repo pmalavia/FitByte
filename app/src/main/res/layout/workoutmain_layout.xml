@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="10dip"
+    android:weightSum="1"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FitByte Workouts"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="#ff1710ff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Your Workout Directory:"
+        android:layout_marginTop="30dp"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/workout1"
+        android:textSize="20dp"
+        android:onClick="workoutButtonClicked"
+        />
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/workout2"
+        android:textSize="20dp"
+        android:onClick="workoutButtonClicked"
+        />
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/workout3"
+        android:textSize="20dp"
+        android:onClick="workoutButtonClicked"
+        />
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/workout4"
+        android:textSize="20dp"
+        android:onClick="workoutButtonClicked"
+        />
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/workout5"
+        android:textSize="20dp"
+        android:onClick="workoutButtonClicked"
+        />
+</LinearLayout>
