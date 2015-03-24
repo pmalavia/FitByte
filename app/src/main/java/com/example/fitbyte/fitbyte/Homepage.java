@@ -1,5 +1,6 @@
 package com.example.fitbyte.fitbyte;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,30 +8,55 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
-public class Homepage extends Activity {
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-    DrawerLayout drawerLayout;
-    ListView listView;
-    String[] menu;
-    ArrayAdapter<String> adapter;
+public class HomePage extends MenuNavigation {
+
+    private TextView date;
+    private TextView caloriesRemaining;
+    private TextView name;
+    private TextView goalTime;
+    private TextView fullWeightGoal;
+    private TextView dailyCalGoal;
+    private TextView calBurned;
+    private TextView net;
+    private ImageView profilePic;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homepage_layout);
+        super.onCreateDrawer();
 
-        drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
-        listView = (ListView)findViewById(R.id.list_layout);
-        menu = new String[]{"Diary","EditProfile", "Exercises","Calender","Reminders","Settings"};
-        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menu);
-        listView.setAdapter(adapter);
-        listView.setSelector(android.R.color.holo_blue_dark);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> arg0, View v, int position, long id) {
-                displayView(position);
-            }
-        });
+        date = (TextView) findViewById(R.id.tvDate);
+        caloriesRemaining = (TextView) findViewById(R.id.tvCaloriesRemaining);
+        name = (TextView) findViewById(R.id.tvName);
+        goalTime = (TextView) findViewById(R.id.tvTimeLeft);
+        fullWeightGoal = (TextView) findViewById(R.id.tvWeightGoal);
+        dailyCalGoal = (TextView) findViewById(R.id.tvGoal);
+        calBurned = (TextView) findViewById(R.id.tvCalBurned);
+        net = (TextView) findViewById(R.id.tvNet);
+        profilePic = (ImageView) findViewById(R.id.profilePic);
+
+        setDisplay();//initialize
+    }
+
+
+    private void setDisplay (){
+        UserProfile userInfo = new UserProfile(); //user information object
+
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); //set the date
+        String currentDateandTime = sdf.format(new Date());
+
+        //setting text
+        date.setText(currentDateandTime);
+        name.setText(userInfo.getName());
+        fullWeightGoal.setText(userInfo.getGainOrLose());
+        goalTime.setText(userInfo.getStringWeeks());
     }
 
     private void displayView(int position){
@@ -45,7 +71,7 @@ public class Homepage extends Activity {
                 startActivity(new Intent(this, WorkoutMain.class));
                 break;
             case 3 :
-                startActivity(new Intent(this, Calender.class));
+                startActivity(new Intent(this, Calendar.class));
                 break;
             default:break;
         }

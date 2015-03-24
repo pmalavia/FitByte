@@ -4,17 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
 
-
-public class EditProfile extends Activity {
+public class EditProfile extends MenuNavigation {
 
     UserProfile up = new UserProfile();
     EditText editName;
@@ -101,7 +96,7 @@ public class EditProfile extends Activity {
         }
 
         if (ageEx && heightEx && weightEx) {
-            Intent myIntent = new Intent(this, Homepage.class);
+            Intent myIntent = new Intent(this, HomePage.class);
             startActivity(myIntent);
         }
 

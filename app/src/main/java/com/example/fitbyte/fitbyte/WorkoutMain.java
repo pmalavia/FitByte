@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class WorkoutMain extends Activity {
+public class WorkoutMain extends MenuNavigation {
 
     NewWorkout workout;
     Button bt1;
@@ -20,6 +20,7 @@ public class WorkoutMain extends Activity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.workoutmain_layout);
+        super.onCreateDrawer();
 
         workout = new NewWorkout();
         bt1 = (Button)findViewById(R.id.workout1);

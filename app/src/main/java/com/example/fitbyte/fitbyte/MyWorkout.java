@@ -5,14 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class MyWorkout extends Activity {
+public class MyWorkout extends MenuNavigation {
 
     private NewWorkout newWorkout = new NewWorkout();
     private WorkoutMain ma = new WorkoutMain();
@@ -56,6 +55,8 @@ public class MyWorkout extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.myworkout_layout);
+
+
 
         reps01 = (NumberPicker)findViewById(R.id.reps01);
         reps01.setMaxValue(1);
@@ -398,7 +399,7 @@ public class MyWorkout extends Activity {
     }
 
     public void onBackPressed(){
-        Intent myIntent = new Intent(this, Homepage.class);
+        Intent myIntent = new Intent(this, HomePage.class);
         startActivity(myIntent);
     }
 }

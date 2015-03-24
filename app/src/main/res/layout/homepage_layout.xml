@@ -4,6 +4,196 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent" android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="20/30/2000"
+            android:id="@+id/tvDate"
+            android:gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Calories Remaining"
+            android:id="@+id/cal_remaining"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="23dp"
+            android:layout_marginEnd="23dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="2000"
+            android:id="@+id/tvCaloriesRemaining"
+            android:layout_below="@+id/cal_remaining"
+            android:layout_alignRight="@+id/cal_remaining"
+            android:layout_alignEnd="@+id/cal_remaining"
+            android:layout_marginRight="37dp"
+            android:layout_marginEnd="37dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Name"
+            android:id="@+id/tvName"
+            android:layout_below="@+id/tvCaloriesRemaining"
+            android:layout_alignLeft="@+id/cal_remaining"
+            android:layout_alignStart="@+id/cal_remaining"
+            android:layout_marginTop="32dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Goal:"
+            android:id="@+id/goal_line"
+            android:layout_below="@+id/tvName"
+            android:layout_alignLeft="@+id/tvName"
+            android:layout_alignStart="@+id/tvName"
+            android:layout_marginTop="28dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Time:"
+            android:id="@+id/time_text"
+            android:layout_below="@+id/goal_line"
+            android:layout_alignLeft="@+id/goal_line"
+            android:layout_alignStart="@+id/goal_line"
+            android:layout_marginTop="26dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="goal input"
+            android:id="@+id/tvWeightGoal"
+            android:layout_alignTop="@+id/goal_line"
+            android:layout_alignRight="@+id/tvCaloriesRemaining"
+            android:layout_alignEnd="@+id/tvCaloriesRemaining" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="time remaining"
+            android:id="@+id/tvTimeLeft"
+            android:layout_alignTop="@+id/time_text"
+            android:layout_alignLeft="@+id/tvWeightGoal"
+            android:layout_alignStart="@+id/tvWeightGoal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Goal:"
+            android:id="@+id/goal_text"
+            android:layout_marginTop="41dp"
+            android:layout_below="@+id/time_text"
+            android:layout_alignRight="@+id/tvDate"
+            android:layout_alignEnd="@+id/tvDate"
+            android:layout_marginRight="31dp"
+            android:layout_marginEnd="31dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Gained:"
+            android:id="@+id/gained_text"
+            android:layout_marginTop="29dp"
+            android:layout_below="@+id/goal_text"
+            android:layout_alignLeft="@+id/goal_text"
+            android:layout_alignStart="@+id/goal_text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Burned:"
+            android:id="@+id/burn_text"
+            android:layout_marginTop="28dp"
+            android:layout_below="@+id/gained_text"
+            android:layout_alignRight="@+id/gained_text"
+            android:layout_alignEnd="@+id/gained_text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Net:"
+            android:id="@+id/net_text"
+            android:layout_marginTop="31dp"
+            android:layout_below="@+id/burn_text"
+            android:layout_alignLeft="@+id/gained_text"
+            android:layout_alignStart="@+id/gained_text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="0000"
+            android:id="@+id/tvGoal"
+            android:layout_above="@+id/gained_text"
+            android:layout_alignRight="@+id/tvWeightGoal"
+            android:layout_alignEnd="@+id/tvWeightGoal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="0000"
+            android:id="@+id/tvCalConsumed"
+            android:layout_above="@+id/burn_text"
+            android:layout_alignLeft="@+id/tvGoal"
+            android:layout_alignStart="@+id/tvGoal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="0000"
+            android:id="@+id/tvCalBurned"
+            android:layout_alignBottom="@+id/burn_text"
+            android:layout_alignLeft="@+id/tvCalConsumed"
+            android:layout_alignStart="@+id/tvCalConsumed" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="0000"
+            android:id="@+id/tvNet"
+            android:layout_alignTop="@+id/net_text"
+            android:layout_alignLeft="@+id/tvCalBurned"
+            android:layout_alignStart="@+id/tvCalBurned" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/profilePic"
+            android:src="@drawable/ic_launcher"
+            android:layout_alignTop="@+id/tvName"
+            android:layout_alignRight="@+id/net_text"
+            android:layout_alignEnd="@+id/net_text" />
+
+    </RelativeLayout>
+
+
+
+
+
+
     <ListView android:id="@+id/list_layout"
         android:layout_width="240dp"
         android:layout_height="match_parent"

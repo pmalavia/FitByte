@@ -149,7 +149,7 @@ public class UserProfile extends Activity {
         }
 
         if(ageEx && heightEx && weightEx && activityInt > 0){
-            Intent myIntent = new Intent(this, Homepage.class);
+            Intent myIntent = new Intent(this, HomePage.class);
             startActivity(myIntent);
         }
     }
