@@ -2,9 +2,12 @@ package com.example.fitbyte.fitbyte;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -32,10 +35,14 @@ public class UserProfile extends Activity {
     public static int gainInt;
     public static int gl;
     public static int weekInt;
+    private ImageView profilePic;
+    static final int REQUEST_IMAGE_CAPTURE = 1;
+    public static Bitmap bitmap;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_profile);
+        profilePic = (ImageView) findViewById(R.id.profilePic);
         goal = (NumberPicker)findViewById(R.id.numberPicker);
         goal.setMinValue(5);
         goal.setMaxValue(150);
@@ -56,6 +63,21 @@ public class UserProfile extends Activity {
             }
         });
 
+    }
+
+    public void dispatchTakePictureIntent(View view) {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            bitmap = (Bitmap) extras.get("data");
+            profilePic.setImageBitmap(bitmap);
+        }
     }
 
     public void submitClicked(View view){

@@ -179,20 +179,16 @@
             android:layout_alignStart="@+id/tvCalBurned" />
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/profilePic"
             android:src="@drawable/ic_launcher"
             android:layout_alignTop="@+id/tvName"
             android:layout_alignRight="@+id/net_text"
-            android:layout_alignEnd="@+id/net_text" />
+            android:layout_alignEnd="@+id/net_text"
+            android:id="@+id/profilePicture"
+        />
 
     </RelativeLayout>
-
-
-
-
-
 
     <ListView android:id="@+id/list_layout"
         android:layout_width="240dp"
