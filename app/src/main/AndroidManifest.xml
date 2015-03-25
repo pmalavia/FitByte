@@ -12,7 +12,8 @@
         android:theme="@style/Theme.AppCompat.Light" >
         <activity
             android:name=".UserProfile"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".HomePage"
+            android:name=".Homepage"
             android:label="@string/app_name"
             >
             <intent-filter>
@@ -65,7 +66,7 @@
         <activity
             android:name=".EditProfile"
             android:label="@string/app_name"
-            android:parentActivityName=".HomePage"
+            android:parentActivityName=".Homepage"
             android:windowSoftInputMode="stateHidden">
         </activity>
     </application>

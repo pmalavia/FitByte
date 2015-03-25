@@ -31,7 +31,7 @@ public class Homepage extends MenuNavigation {
     private TextView calBurned;
     private TextView net;
     private ImageView profilePicture;
-    static final int REQUEST_IMAGE_CAPTURE = 1;
+
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +55,7 @@ public class Homepage extends MenuNavigation {
 
     private void setDisplay (){
         UserProfile userInfo = new UserProfile(); //user information object
+        CalorieGoal calGoal = new CalorieGoal();
 
         @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); //set the date
         String currentDateandTime = sdf.format(new Date());
@@ -65,10 +66,9 @@ public class Homepage extends MenuNavigation {
 
         fullWeightGoal.setText(userInfo.getGainOrLose() + " Weight");
         goalTime.setText(userInfo.getStringWeeks() + " Weeks");
+        dailyCalGoal.setText(calGoal.getStringCalorieGoal());
 
 
-        fullWeightGoal.setText(userInfo.getGainOrLose());
-        goalTime.setText(userInfo.getStringWeeks());
 
         EditProfile editProfile = new EditProfile();
         if(editProfile.visited){

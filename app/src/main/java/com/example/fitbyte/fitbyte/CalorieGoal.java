@@ -77,5 +77,10 @@ public class CalorieGoal {
         return calcCalorieGoal();
     }
 
+    public String getStringCalorieGoal(){
+
+        return Integer.toString(calcCalorieGoal());
+    }
+
 }
 

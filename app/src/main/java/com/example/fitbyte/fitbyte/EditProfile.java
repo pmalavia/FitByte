@@ -110,7 +110,7 @@ public class EditProfile extends MenuNavigation {
         }
 
         if (ageEx && heightEx && weightEx) {
-            Intent myIntent = new Intent(this, HomePage.class);
+            Intent myIntent = new Intent(this, Homepage.class);
             startActivity(myIntent);
         }
 

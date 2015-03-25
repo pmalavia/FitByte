@@ -47,30 +47,7 @@
             android:id="@+id/tvName"
             android:layout_below="@+id/tvCaloriesRemaining"
             android:layout_alignLeft="@+id/cal_remaining"
-            android:layout_alignStart="@+id/cal_remaining"
-            android:layout_marginTop="32dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Goal:"
-            android:id="@+id/goal_line"
-            android:layout_below="@+id/tvName"
-            android:layout_alignLeft="@+id/tvName"
-            android:layout_alignStart="@+id/tvName"
-            android:layout_marginTop="28dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Time:"
-            android:id="@+id/time_text"
-            android:layout_below="@+id/goal_line"
-            android:layout_alignLeft="@+id/goal_line"
-            android:layout_alignStart="@+id/goal_line"
-            android:layout_marginTop="26dp" />
+            android:layout_alignStart="@+id/cal_remaining" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -78,9 +55,10 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="goal input"
             android:id="@+id/tvWeightGoal"
-            android:layout_alignTop="@+id/goal_line"
-            android:layout_alignRight="@+id/tvCaloriesRemaining"
-            android:layout_alignEnd="@+id/tvCaloriesRemaining" />
+            android:layout_below="@+id/tvName"
+            android:layout_alignLeft="@+id/tvName"
+            android:layout_alignStart="@+id/tvName"
+            android:layout_marginTop="26dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -88,9 +66,10 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="time remaining"
             android:id="@+id/tvTimeLeft"
-            android:layout_alignTop="@+id/time_text"
+            android:layout_above="@+id/tvGoal"
             android:layout_alignLeft="@+id/tvWeightGoal"
-            android:layout_alignStart="@+id/tvWeightGoal" />
+            android:layout_alignStart="@+id/tvWeightGoal"
+            android:layout_marginBottom="29dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -98,12 +77,12 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Goal:"
             android:id="@+id/goal_text"
-            android:layout_marginTop="41dp"
-            android:layout_below="@+id/time_text"
+            android:layout_marginTop="85dp"
+            android:layout_marginRight="29dp"
+            android:layout_marginEnd="29dp"
+            android:layout_below="@+id/tvWeightGoal"
             android:layout_alignRight="@+id/tvDate"
-            android:layout_alignEnd="@+id/tvDate"
-            android:layout_marginRight="31dp"
-            android:layout_marginEnd="31dp" />
+            android:layout_alignEnd="@+id/tvDate" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -182,11 +161,10 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_launcher"
-            android:layout_alignTop="@+id/tvName"
-            android:layout_alignRight="@+id/net_text"
-            android:layout_alignEnd="@+id/net_text"
             android:id="@+id/profilePicture"
-        />
+            android:layout_above="@+id/goal_text"
+            android:layout_alignRight="@+id/gained_text"
+            android:layout_alignEnd="@+id/gained_text" />
 
     </RelativeLayout>
 
