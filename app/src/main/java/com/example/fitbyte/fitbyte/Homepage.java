@@ -3,7 +3,12 @@ package com.example.fitbyte.fitbyte;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,7 +20,7 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class HomePage extends MenuNavigation {
+public class Homepage extends MenuNavigation {
 
     private TextView date;
     private TextView caloriesRemaining;
@@ -25,7 +30,9 @@ public class HomePage extends MenuNavigation {
     private TextView dailyCalGoal;
     private TextView calBurned;
     private TextView net;
-    private ImageView profilePic;
+    private ImageView profilePicture;
+    static final int REQUEST_IMAGE_CAPTURE = 1;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,11 +47,11 @@ public class HomePage extends MenuNavigation {
         dailyCalGoal = (TextView) findViewById(R.id.tvGoal);
         calBurned = (TextView) findViewById(R.id.tvCalBurned);
         net = (TextView) findViewById(R.id.tvNet);
-        profilePic = (ImageView) findViewById(R.id.profilePic);
+        profilePicture = (ImageView) findViewById(R.id.profilePicture);
 
         setDisplay();//initialize
-    }
 
+    }
 
     private void setDisplay (){
         UserProfile userInfo = new UserProfile(); //user information object
@@ -55,9 +62,25 @@ public class HomePage extends MenuNavigation {
         //setting text
         date.setText(currentDateandTime);
         name.setText(userInfo.getName());
+
         fullWeightGoal.setText(userInfo.getGainOrLose() + " Weight");
         goalTime.setText(userInfo.getStringWeeks() + " Weeks");
+
+
+        fullWeightGoal.setText(userInfo.getGainOrLose());
+        goalTime.setText(userInfo.getStringWeeks());
+
+        EditProfile editProfile = new EditProfile();
+        if(editProfile.visited){
+            profilePicture.setImageBitmap(editProfile.bitmap);
+        }
+        else {
+            profilePicture.setImageBitmap(userInfo.bitmap);
+        }
+    }
     }
 
 
-}
+
+
+
