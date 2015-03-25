@@ -55,25 +55,9 @@ public class HomePage extends MenuNavigation {
         //setting text
         date.setText(currentDateandTime);
         name.setText(userInfo.getName());
-        fullWeightGoal.setText(userInfo.getGainOrLose());
-        goalTime.setText(userInfo.getStringWeeks());
+        fullWeightGoal.setText(userInfo.getGainOrLose() + " Weight");
+        goalTime.setText(userInfo.getStringWeeks() + " Weeks");
     }
 
-    private void displayView(int position){
-        switch(position){
-            case 0 :
-                startActivity(new Intent(this,Diary.class));
-                break;
-            case 1 :
-                startActivity(new Intent(this,EditProfile.class));
-                break;
-            case 2 :
-                startActivity(new Intent(this, WorkoutMain.class));
-                break;
-            case 3 :
-                startActivity(new Intent(this, Calendar.class));
-                break;
-            default:break;
-        }
-    }
+
 }
