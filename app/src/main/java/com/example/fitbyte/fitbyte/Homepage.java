@@ -55,11 +55,11 @@ public class Homepage extends MenuNavigation {
 
     private void setDisplay (){
         UserProfile userInfo = new UserProfile(); //user information object
-<<<<<<< HEAD
+
         CalorieGoal dailyGoal = new CalorieGoal();//daily goal
-=======
+
         CalorieGoal calGoal = new CalorieGoal();
->>>>>>> origin/master
+
 
         @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); //set the date
         String currentDateandTime = sdf.format(new Date());
@@ -67,13 +67,11 @@ public class Homepage extends MenuNavigation {
         //setting text
         date.setText(currentDateandTime);
         name.setText(userInfo.getName());
-<<<<<<< HEAD
+
         fullWeightGoal.setText(userInfo.getGainOrLose() + " Weight");
         goalTime.setText(userInfo.getStringWeeks() + " Weeks");
         dailyCalGoal.setText( dailyGoal.getStringCalorieGoal());
-    }
-=======
->>>>>>> origin/master
+
 
         fullWeightGoal.setText(userInfo.getGainOrLose() + " Weight");
         goalTime.setText(userInfo.getStringWeeks() + " Weeks");
@@ -90,6 +88,10 @@ public class Homepage extends MenuNavigation {
         }
     }
     }
+
+
+
+
 
 
 
