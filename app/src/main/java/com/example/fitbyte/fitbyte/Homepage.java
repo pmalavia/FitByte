@@ -48,6 +48,7 @@ public class HomePage extends MenuNavigation {
 
     private void setDisplay (){
         UserProfile userInfo = new UserProfile(); //user information object
+        CalorieGoal dailyGoal = new CalorieGoal();//daily goal
 
         @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); //set the date
         String currentDateandTime = sdf.format(new Date());
@@ -55,8 +56,9 @@ public class HomePage extends MenuNavigation {
         //setting text
         date.setText(currentDateandTime);
         name.setText(userInfo.getName());
-        fullWeightGoal.setText(userInfo.getGainOrLose());
-        goalTime.setText(userInfo.getStringWeeks());
+        fullWeightGoal.setText(userInfo.getGainOrLose() + " Weight");
+        goalTime.setText(userInfo.getStringWeeks() + " Weeks");
+        dailyCalGoal.setText( dailyGoal.getStringCalorieGoal());
     }
 
     private void displayView(int position){

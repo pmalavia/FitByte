@@ -68,8 +68,11 @@ public class CalorieGoal {
             caloriegoal = getTDEE() - dailyvarcals;
         }
 
-        return caloriegoal;
+        return caloriegoal; //returns an int
 
+    }
+    public String getStringCalorieGoal(){
+        return Integer.toString(calcCalorieGoal());
     }
 
     public int getCalorieGoal(){
