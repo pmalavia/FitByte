@@ -1,6 +1,5 @@
 package com.example.fitbyte.fitbyte;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -399,7 +398,7 @@ public class MyWorkout extends MenuNavigation {
     }
 
     public void onBackPressed(){
-        Intent myIntent = new Intent(this, HomePage.class);
+        Intent myIntent = new Intent(this, Homepage.class);
         startActivity(myIntent);
     }
 }

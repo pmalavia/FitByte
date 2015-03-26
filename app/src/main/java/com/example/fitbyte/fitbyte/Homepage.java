@@ -3,7 +3,12 @@ package com.example.fitbyte.fitbyte;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,7 +20,7 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class HomePage extends MenuNavigation {
+public class Homepage extends MenuNavigation {
 
     private TextView date;
     private TextView caloriesRemaining;
@@ -25,7 +30,9 @@ public class HomePage extends MenuNavigation {
     private TextView dailyCalGoal;
     private TextView calBurned;
     private TextView net;
-    private ImageView profilePic;
+    private ImageView profilePicture;
+
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,15 +47,19 @@ public class HomePage extends MenuNavigation {
         dailyCalGoal = (TextView) findViewById(R.id.tvGoal);
         calBurned = (TextView) findViewById(R.id.tvCalBurned);
         net = (TextView) findViewById(R.id.tvNet);
-        profilePic = (ImageView) findViewById(R.id.profilePic);
+        profilePicture = (ImageView) findViewById(R.id.profilePicture);
 
         setDisplay();//initialize
-    }
 
+    }
 
     private void setDisplay (){
         UserProfile userInfo = new UserProfile(); //user information object
+<<<<<<< HEAD
         CalorieGoal dailyGoal = new CalorieGoal();//daily goal
+=======
+        CalorieGoal calGoal = new CalorieGoal();
+>>>>>>> origin/master
 
         @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); //set the date
         String currentDateandTime = sdf.format(new Date());
@@ -56,26 +67,31 @@ public class HomePage extends MenuNavigation {
         //setting text
         date.setText(currentDateandTime);
         name.setText(userInfo.getName());
+<<<<<<< HEAD
         fullWeightGoal.setText(userInfo.getGainOrLose() + " Weight");
         goalTime.setText(userInfo.getStringWeeks() + " Weeks");
         dailyCalGoal.setText( dailyGoal.getStringCalorieGoal());
     }
+=======
+>>>>>>> origin/master
 
-    private void displayView(int position){
-        switch(position){
-            case 0 :
-                startActivity(new Intent(this,Diary.class));
-                break;
-            case 1 :
-                startActivity(new Intent(this,EditProfile.class));
-                break;
-            case 2 :
-                startActivity(new Intent(this, WorkoutMain.class));
-                break;
-            case 3 :
-                startActivity(new Intent(this, Calendar.class));
-                break;
-            default:break;
+        fullWeightGoal.setText(userInfo.getGainOrLose() + " Weight");
+        goalTime.setText(userInfo.getStringWeeks() + " Weeks");
+        dailyCalGoal.setText(calGoal.getStringCalorieGoal());
+
+
+
+        EditProfile editProfile = new EditProfile();
+        if(editProfile.visited){
+            profilePicture.setImageBitmap(editProfile.bitmap);
+        }
+        else {
+            profilePicture.setImageBitmap(userInfo.bitmap);
         }
     }
-}
+    }
+
+
+
+
+

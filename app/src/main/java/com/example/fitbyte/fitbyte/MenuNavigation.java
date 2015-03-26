@@ -1,6 +1,5 @@
 package com.example.fitbyte.fitbyte;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -42,7 +41,7 @@ public class MenuNavigation extends ActionBarActivity {
     private void displayView(int position){
         switch(position){
             case 0 :
-                startActivity(new Intent(this,HomePage.class));
+                startActivity(new Intent(this,Homepage.class));
                 break;
             case 1 :
                 startActivity(new Intent(this,Diary.class));
