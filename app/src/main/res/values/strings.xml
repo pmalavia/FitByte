@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="http://schemas.android.com/apk/res-auto">
 
     <string name="app_name">FitByte</string>
     <string name="hello_world">Hello world!</string>
@@ -10,5 +10,10 @@
     <string name="set3">Set 3 : </string>
     <string name="current">Current </string>
     <string name="saveEntry">Save Entry</string>
+
+    <string name="stop">Stop</string>
+    <string name="start">Start</string>
+    <string name="reset">Reset</string>
+
 
 </resources>

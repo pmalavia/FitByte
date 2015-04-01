@@ -95,15 +95,15 @@
                 android:text="REMAINING"/>
         </LinearLayout>
 
-        <CheckedTextView
+        <TextView
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="@drawable/textview"
             android:text="Breakfast"
             android:layout_marginTop="10dp"
-            android:onClick=""/>
+        />
 
-        <CheckedTextView
+        <TextView
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="@drawable/textview"
@@ -112,28 +112,35 @@
             android:onClick=""/>
 
 
-        <CheckedTextView
+        <TextView
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="@drawable/textview"
             android:layout_marginTop="10dp"
             android:text="Dinner"
-            android:onClick=""/>
+         />
 
 
-        <CheckedTextView
+        <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:background="@drawable/textview"
-            android:layout_marginTop="10dp"
-            android:text="Exercises"
-            android:onClick=""/>
+            android:layout_height="30dp"
+            android:orientation="horizontal">
 
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="fill_parent"
+                android:background="@drawable/textview"
+                android:layout_marginTop="10dp"
+                android:text="Exercises"
+                />
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:onClick="running"/>
 
-
-
-
+            </LinearLayout>
     </LinearLayout>
 </ScrollView>
 <ListView android:id="@+id/list_layout"

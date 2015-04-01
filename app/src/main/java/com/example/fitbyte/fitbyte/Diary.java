@@ -1,7 +1,9 @@
 package com.example.fitbyte.fitbyte;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 public class Diary extends MenuNavigation {
 
@@ -9,6 +11,12 @@ public class Diary extends MenuNavigation {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.diary_layout);
         super.onCreateDrawer();
+    }
+
+    public void running(View view){
+        Intent myIntent = new Intent(this, DistanceTracker.class);
+        startActivity(myIntent);
+
     }
 }
 
