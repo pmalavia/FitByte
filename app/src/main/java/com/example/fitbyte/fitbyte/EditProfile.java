@@ -1,6 +1,8 @@
 package com.example.fitbyte.fitbyte;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -29,10 +31,13 @@ public class EditProfile extends MenuNavigation {
     public static Bitmap bitmap;
     public static boolean visited = false;
 
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.editprofile_layout);
         profilePic = (ImageView) findViewById(R.id.profilePic);
+        SharedPreferences userInfo = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+
 
         if(visited){
             profilePic.setImageBitmap(bitmap);
@@ -42,39 +47,50 @@ public class EditProfile extends MenuNavigation {
         }
 
         weeks = (TextView) findViewById(R.id.weeks);
-        weeks.setText(up.getStringWeeks());
+        //weeks.setText(up.getStringWeeks());
+        weeks.setText(userInfo.getString("Usergoalweeks", ""));
 
         editName = (EditText) findViewById(R.id.name);
-        editName.setText(up.getName());
+        //editName.setText(up.getName());
+        editName.setText(userInfo.getString("Username", ""));
 
         editAge = (EditText) findViewById(R.id.age);
-        editAge.setText(up.getStringAge());
+        //editAge.setText(up.getStringAge());
+        editAge.setText(userInfo.getString("Userage", ""));
 
         editWeight = (EditText) findViewById(R.id.weight);
-        editWeight.setText(up.getStringWeight());
+        //editWeight.setText(up.getStringWeight());
+        editWeight.setText(userInfo.getString("Userweight", ""));
 
         editHeight = (EditText) findViewById(R.id.height);
-        editHeight.setText(up.getStringHeight());
+        //editHeight.setText(up.getStringHeight());
+        editHeight.setText(userInfo.getString("Userheight", ""));
 
         gainLose = (TextView) findViewById(R.id.gainLose);
-        gainLose.setText(up.getGainOrLose());
+        //gainLose.setText(up.getGainOrLose());
+        gainLose.setText((userInfo.getString("Usergainorlose", "")));
 
         goal = (TextView) findViewById(R.id.goal);
-        goal.setText(up.getStringGoal());
+        //goal.setText(up.getStringGoal());
+        goal.setText(userInfo.getString("Userweightgoal", "")); //desired weight lose/gain goal
 
         gender = (TextView) findViewById(R.id.gender);
-        gender.setText(up.getGender());
+        //gender.setText(up.getGender());
+        gender.setText(userInfo.getString("Usergender", ""));
 
         activityLevel = (TextView) findViewById(R.id.activityLevel);
-        activityLevel.setText(up.getActivity());
+        //activityLevel.setText(up.getActivity());
+        activityLevel.setText(userInfo.getString("Useractivitylevel", ""));
     }
 
     public void submitClicked(View view) {
-        up.setName(editName);
+        /**up.setName(editName);
+
+
         up.setAge(editAge);
         up.setWeight(editWeight);
         up.setHeight(editHeight);
-
+        */
 
         try {
             int age = Integer.parseInt(editAge.getText().toString());
@@ -114,11 +130,21 @@ public class EditProfile extends MenuNavigation {
             startActivity(myIntent);
         }
 
-        up.setName(editName);
+        SharedPreferences userInfo = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = userInfo.edit();
+
+        editor.putString("Username", editName.getText().toString());
+        editor.putString("Userage", editAge.getText().toString());
+        editor.putString("Userweight", editWeight.getText().toString());
+        editor.putString("Userheight", editHeight.getText().toString());
+
+        editor.commit();
+
+        /**up.setName(editName);
         up.setAge(editAge);
         up.setWeight(editWeight);
         up.setHeight(editHeight);
-
+        */
     }
 
     public void dispatchTakePictureIntent(View view) {

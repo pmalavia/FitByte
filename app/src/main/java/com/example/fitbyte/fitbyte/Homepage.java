@@ -2,7 +2,9 @@ package com.example.fitbyte.fitbyte;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -34,6 +36,7 @@ public class Homepage extends MenuNavigation {
 
 
 
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homepage_layout);
@@ -54,11 +57,13 @@ public class Homepage extends MenuNavigation {
     }
 
     private void setDisplay (){
-        UserProfile userInfo = new UserProfile(); //user information object
+
+
+        SharedPreferences userInfo = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+
+       // UserProfile userInfo1 = new UserProfile(); //user information object
 
         CalorieGoal dailyGoal = new CalorieGoal();//daily goal
-
-        CalorieGoal calGoal = new CalorieGoal();
 
 
         @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); //set the date
@@ -66,26 +71,32 @@ public class Homepage extends MenuNavigation {
 
         //setting text
         date.setText(currentDateandTime);
-        name.setText(userInfo.getName());
+        //name.setText(userInfo.getName());
+        name.setText(userInfo.getString("Username", "").toString()); //from memory
 
-        fullWeightGoal.setText(userInfo.getGainOrLose() + " Weight");
-        goalTime.setText(userInfo.getStringWeeks() + " Weeks");
+        //fullWeightGoal.setText(userInfo.getGainOrLose() + " Weight");
+        fullWeightGoal.setText(userInfo.getString("Usergainorlose", ""));
+
+        //goalTime.setText(userInfo.getStringWeeks() + " Weeks");
+        goalTime.setText(userInfo.getString("Usergoalweeks", ""));
+
         dailyCalGoal.setText( dailyGoal.getStringCalorieGoal());
 
 
-        fullWeightGoal.setText(userInfo.getGainOrLose() + " Weight");
-        goalTime.setText(userInfo.getStringWeeks() + " Weeks");
-        dailyCalGoal.setText(calGoal.getStringCalorieGoal());
 
 
 
-        EditProfile editProfile = new EditProfile();
+
+
+
+        /**EditProfile editProfile = new EditProfile();
         if(editProfile.visited){
             profilePicture.setImageBitmap(editProfile.bitmap);
         }
         else {
-            profilePicture.setImageBitmap(userInfo.bitmap);
+            profilePicture.setImageBitmap(userInfo1.bitmap);
         }
+         */
     }
     }
 

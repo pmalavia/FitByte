@@ -1,7 +1,9 @@
 package com.example.fitbyte.fitbyte;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -38,16 +40,37 @@ public class UserProfile extends Activity {
     private ImageView profilePic;
     static final int REQUEST_IMAGE_CAPTURE = 1;
     public static Bitmap bitmap;
+    static public String nameM, ageM, heightM, weightM, genderM, activityM, weightGoalM, weekGoalM, gainOrloseM;
+    static public int goalM;
+
+
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_profile);
+
+   /**SharedPreferences visit = getSharedPreferences("Visit", Context.MODE_PRIVATE);
+        //this will make it so this page only appears once, the very first time
+        SharedPreferences.Editor editor = visit.edit();
+        //editor.putBoolean("activity_executed", false);
+        if(visit.getBoolean("activity_executed", false)){
+            Intent intent = new Intent(this, Homepage.class);
+            startActivity(intent);
+            finish();
+                    }
+        else{
+
+            editor.putBoolean("activity_executed", true);
+            editor.commit();
+        }
+        */
         profilePic = (ImageView) findViewById(R.id.profilePic);
-        goal = (NumberPicker)findViewById(R.id.numberPicker);
+        goal = (NumberPicker)findViewById(R.id.numberPicker); //weight goal
         goal.setMinValue(5);
         goal.setMaxValue(150);
 
-        goal.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+        goal.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() { //weight goal
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
                 goalInt = newVal;
             }
@@ -62,6 +85,9 @@ public class UserProfile extends Activity {
                 weekInt = newVal;
             }
         });
+
+
+
 
     }
 
@@ -97,6 +123,9 @@ public class UserProfile extends Activity {
         gain = (RadioButton)findViewById(R.id.gain);
         lose = (RadioButton)findViewById(R.id.lose);
         gainGroup = (RadioGroup)findViewById(R.id.gainORlose);
+
+
+
 
         gainInt = gainGroup.getCheckedRadioButtonId();
         if(gainInt == gain.getId()){
@@ -174,7 +203,75 @@ public class UserProfile extends Activity {
             Intent myIntent = new Intent(this, Homepage.class);
             startActivity(myIntent);
         }
+
+        save();
+
     }
+
+    public void save(){
+
+        SharedPreferences profileInfo = getSharedPreferences("UserInfo", Context.MODE_PRIVATE); //save all username info to internal memory
+        SharedPreferences.Editor editor = profileInfo.edit();
+
+        editor.putString("Username",editName.getText().toString() );
+        editor.putString("Userage",editAge.getText().toString() );
+        editor.putString("Userweight", editWeight.getText().toString());
+        editor.putString("Userheight", editHeight.getText().toString());
+        editor.putString("Usergender", getGender());
+        editor.putString("Usergoalweeks", getStringWeeks());
+        editor.putString("Userweightgoal", getStringGoal());
+        editor.putInt("Userweeks", getGoalWeek());
+        editor.putString("Useractivitylevel", getActivity());
+        editor.putString("Usergainorlose", getGainOrLose());
+        editor.putInt("Userintgoal", getGoal());
+        editor.commit();
+
+        nameM = profileInfo.getString("Username", "");
+                 ageM =  profileInfo.getString("Userage", "");
+                         heightM =  profileInfo.getString("Userheight", "");
+                         weightM =  profileInfo.getString("Userweight", "");
+                                 genderM =  profileInfo.getString("Usergender", "");
+                         activityM =  profileInfo.getString("Useractivitylevel", "");
+                         weightGoalM =  profileInfo.getString("Userweightgoal", "");
+        weekGoalM =  profileInfo.getString("Usergoalweeks", "");
+                         gainOrloseM =  profileInfo.getString("Usergainorlose", "");
+                         goalM =  profileInfo.getInt("Userintgoal", 0);
+
+    }
+
+    public String getName1(){
+        return nameM;
+    }
+    public String getGender1(){
+       return genderM;
+    }
+    public String getWeight1(){
+      return weightM;
+    }
+    public String getAge1(){
+       return ageM;
+    }
+    public String getGoalWeeks1(){
+       return weekGoalM;
+    }
+    public String getGoalWeight1(){
+     return weightGoalM;
+    }
+    public String getHeight1(){
+        return heightM;
+    }
+    public String getActivity1(){
+       return activityM;
+    }
+
+     public int getGoal1(){
+       return goalM;
+    }
+
+    public String getGainOrLose1(){
+       return gainOrloseM;
+    }
+    //-------------------------------------End of get memory variables ^^^^^^^^^^^^^^^^^^^^^^^
 
     public void setName(EditText name){
         editName = name;
@@ -263,5 +360,7 @@ public class UserProfile extends Activity {
         else{
             return "Very Active";
         }
+
     }
+
 }
