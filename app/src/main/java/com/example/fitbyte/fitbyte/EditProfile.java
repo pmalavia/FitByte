@@ -1,5 +1,6 @@
 package com.example.fitbyte.fitbyte;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class EditProfile extends MenuNavigation {
+public class EditProfile extends Activity {
 
     UserProfile up = new UserProfile();
     EditText editName;

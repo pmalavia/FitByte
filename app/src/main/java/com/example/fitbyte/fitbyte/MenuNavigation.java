@@ -1,12 +1,18 @@
 package com.example.fitbyte.fitbyte;
 
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.os.Bundle;
+import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.view.Menu;
 
 /**
  * Created by user on 3/18/2015.
@@ -17,6 +23,11 @@ public class MenuNavigation extends ActionBarActivity {
     ListView listView;
     String[] menu;
     ArrayAdapter<String> adapter;
+    private static final String STATE_SELECTED_POSITION = "selected_navigation_drawer_position";
+    private static final String PREF_USER_LEARNED_DRAWER = "navigation_drawer_learned";
+    private ActionBarDrawerToggle mDrawerToggle;
+    private static final String open = "open";
+    private static final String close = "close";
 
     protected void onCreateDrawer() {
         //super.onCreate(savedInstanceState);
@@ -26,6 +37,22 @@ public class MenuNavigation extends ActionBarActivity {
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
 
         listView = (ListView)findViewById(R.id.list_layout);
+        mDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.drawable.ic_drawer,
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close){
+
+            public void onDrawerClosed(View view){
+            super.onDrawerClosed(view);
+
+            }
+
+            public void onDrawerOpened(View drawerView){
+            super.onDrawerOpened(drawerView);
+            }
+        };
+
+        drawerLayout.setDrawerListener(mDrawerToggle);
+
+
 
         menu = new String[]{"Home", "Diary","Profile", "Exercises","Calendar","Reminders","Settings"};
         adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menu);
@@ -36,6 +63,34 @@ public class MenuNavigation extends ActionBarActivity {
                 displayView(position);
             }
         });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        //getActionBar().setDisplayHomeAsUpEnabled(true);
+       // getActionBar().setHomeButtonEnabled(true);
+    }
+
+   /** protected void onPostCreate(Bundle savedInstanceState){
+        super.onPostCreate(savedInstanceState);
+        mDrawerToggle.syncState();
+    } */
+
+    public boolean onCreateOptionsMenu(Menu menu){
+    MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_activity_actions, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    public void onConfigurationChanged(Configuration newConfig){
+        super.onConfigurationChanged(newConfig);
+        mDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        if(mDrawerToggle.onOptionsItemSelected(item)){
+            return true;
+
+
+        } return super.onOptionsItemSelected(item);
     }
 
     private void displayView(int position){
