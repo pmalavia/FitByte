@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
-public class CalorieGoal extends MenuNavigation{
+public class CalorieGoal extends Activity{
     UserProfile u = new UserProfile();
 
 
@@ -13,17 +13,21 @@ public class CalorieGoal extends MenuNavigation{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+SharedPreferences userInfo1 = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+
+
+
     calcCalorieGoal();
         calcTDEE();
         calcBMR();
     }
 
     int calcBMR(){
-        //SharedPreferences userInfo1 = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+
 
         int bmr;
         String gender = u.getGender1();
-        //String gender = userInfo1.getString("Usergender", "");
+
         int weight = Integer.parseInt(u.getWeight1());
         //int weight = Integer.parseInt(userInfo1.getString("Userweight", "")); //convert string to int
         int age = Integer.parseInt(u.getAge1());
@@ -47,6 +51,7 @@ public class CalorieGoal extends MenuNavigation{
 
     int calcTDEE(){
         //SharedPreferences userInfo1 = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+
         int tdee=0;
         int bmr = getBMR();
         String activity = u.getActivity1();
@@ -74,7 +79,7 @@ public class CalorieGoal extends MenuNavigation{
     }
 
     int calcCalorieGoal(){
-      //SharedPreferences  userInfo1 = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+     // SharedPreferences  userInfo1 = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
 
         int weeks = Integer.parseInt(u.getGoalWeeks1());
         //int weeks = userInfo1.getInt("Userweeks", 0);

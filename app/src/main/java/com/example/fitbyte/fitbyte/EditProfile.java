@@ -131,7 +131,7 @@ public class EditProfile extends Activity {
             startActivity(myIntent);
         }
 
-        SharedPreferences userInfo = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+        SharedPreferences userInfo = getSharedPreferences("UserInfo", Context.CONTEXT_IGNORE_SECURITY);
         SharedPreferences.Editor editor = userInfo.edit();
 
         editor.putString("Username", editName.getText().toString());
