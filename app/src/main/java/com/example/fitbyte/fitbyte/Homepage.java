@@ -80,7 +80,7 @@ public class Homepage extends MenuNavigation {
         //goalTime.setText(userInfo.getStringWeeks() + " Weeks");
         goalTime.setText(userInfo.getString("Usergoalweeks", ""));
 
-        dailyCalGoal.setText( dailyGoal.getStringCalorieGoal());
+        dailyCalGoal.setText( userInfo.getString("calorieString", ""));
 
 
 

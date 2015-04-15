@@ -48,10 +48,10 @@ public class UserProfile extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_profile);
 
-        /**SharedPreferences visit = getSharedPreferences("Visit", Context.MODE_PRIVATE);
+        SharedPreferences visit = getSharedPreferences("Visit2", Context.MODE_PRIVATE);
          //this will make it so this page only appears once, the very first time
          SharedPreferences.Editor editor = visit.edit();
-         //editor.putBoolean("activity_executed", false);
+
          if(visit.getBoolean("activity_executed", false)){
          Intent intent = new Intent(this, Homepage.class);
          startActivity(intent);
@@ -62,7 +62,7 @@ public class UserProfile extends Activity {
          editor.putBoolean("activity_executed", true);
          editor.commit();
          }
-         */
+
         profilePic = (ImageView) findViewById(R.id.profilePic);
         goal = (NumberPicker) findViewById(R.id.numberPicker); //weight goal
         goal.setMinValue(5);
@@ -211,6 +211,8 @@ public class UserProfile extends Activity {
         editor.putString("Useractivitylevel", getActivity());
         editor.putString("Usergainorlose", getGainOrLose());
         editor.putInt("Userintgoal", getGoal());
+        editor.putString("calorieString", getStringCalorieGoal());
+        editor.putInt("calorieInt", getCalorieGoal());
         editor.commit();
 
         nameM = profileInfo.getString("Username", "");
@@ -355,5 +357,101 @@ public class UserProfile extends Activity {
         }
 
     }
+//-----------------------------------calorie methods ------------------------------------------------
+    int calcBMR(){
+        SharedPreferences profileInfo = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+
+        int bmr;
+        //String gender = getGender1();
+
+        //int weight = Integer.parseInt(getWeight1());
+        //int weight = Integer.parseInt(userInfo1.getString("Userweight", "")); //convert string to int
+        //int age = Integer.parseInt(getAge1());
+        //int age = Integer.parseInt(userInfo1.getString("Userage", ""));
+        //int height = Integer.parseInt(getHeight1());
+        //int height = Integer.parseInt(userInfo1.getString("Userheight", ""));
+
+        if(profileInfo.getString("Usergender", "").equals("Male")){
+            bmr = (int) ((65 + (6.23*Integer.parseInt(profileInfo.getString("Userweight", ""))) + (12.7*Integer.parseInt(profileInfo.getString("Userheight", ""))) - (6.8*Integer.parseInt(profileInfo.getString("Userage", "")))) +0.5);
+        }
+        else{
+            bmr = (int) ((655 + (4.35*Integer.parseInt(profileInfo.getString("Userweight", ""))) + (4.7*Integer.parseInt(profileInfo.getString("Userheight", ""))) - (4.7*Integer.parseInt(profileInfo.getString("Userage", "")))) +0.5);
+        }
+        return bmr;
+    }
+
+    public int getBMR(){
+
+        return calcBMR();
+    }
+
+    int calcTDEE(){
+        SharedPreferences userInfo1 = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+
+        int tdee=0;
+        int bmr = getBMR();
+       // String activity = getActivity1();
+        String activity = userInfo1.getString("Useractivitylevel", "");
+        switch(activity){
+            case "Sedentary":
+                tdee = (int)((bmr * 1.2) + 0.5);
+                break;
+            case "Lightly Active":
+                tdee = (int)((bmr * 1.375) + 0.5);
+                break;
+            case "Moderately Active":
+                tdee = (int)((bmr * 1.55) + 0.5);
+                break;
+            case "Very Active":
+                tdee = (int)((bmr * 1.725) + 0.5);
+                break;
+        }
+        return tdee;
+    }
+
+    public int getTDEE(){
+
+        return calcTDEE();
+    }
+
+    int calcCalorieGoal(){
+        SharedPreferences profileInfo = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+
+        // int weeks = Integer.parseInt(getGoalWeeks1());
+        //int weeks = userInfo1.getInt("Userweeks", 0);
+        //int pounds = getGoal1();
+        //int pounds = userInfo1.getInt("Userintgoal", 0);
+        double ppw;
+        int dailyvarcals;
+       // String goal = getGainOrLose1();
+        int caloriegoal;
+
+
+        ppw = (profileInfo.getInt("Userintgoal", 0))/(profileInfo.getInt("Userweeks", 0));
+        dailyvarcals = (int)((ppw * 3500)/7);
+
+
+        if( profileInfo.getString("Usergainorlose", "").equals("Gain")){
+            caloriegoal = getTDEE() + dailyvarcals;
+        }
+        else{
+            caloriegoal = getTDEE() - dailyvarcals;
+        }
+
+        return caloriegoal; //returns an int
+
+    }
+
+
+    public int getCalorieGoal(){
+
+        return calcCalorieGoal();
+    }
+
+    public String getStringCalorieGoal(){
+
+        return Integer.toString(calcCalorieGoal());
+    }
+
 
 }
