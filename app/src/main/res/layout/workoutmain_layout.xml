@@ -69,6 +69,14 @@
         android:textSize="20dp"
         android:onClick="workoutButtonClicked"
         />
+
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Go Running"
+        android:onClick="running"
+        android:layout_marginTop="20dp"/>
 </LinearLayout>
 
 
