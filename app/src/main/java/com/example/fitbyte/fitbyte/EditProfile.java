@@ -224,7 +224,7 @@ public class EditProfile extends Activity {
             Intent myIntent = new Intent(this, Homepage.class);
             startActivity(myIntent);
         }
-
+        CalorieGoal calorieGoal = new CalorieGoal();
         SharedPreferences userInfo = getSharedPreferences("UserInfo", Context.CONTEXT_IGNORE_SECURITY);
         SharedPreferences.Editor editor = userInfo.edit();
 
@@ -237,7 +237,7 @@ public class EditProfile extends Activity {
         editor.putString("Usergoal", editGoal.getText().toString());
         editor.putInt("Usergoalpounds", Integer.parseInt(editPounds.getText().toString()));
         editor.putString("Useractivitylevel", editActivityLevel.getText().toString());
-
+       // editor.putString("calorieString",calorieGoal.getStringCalorieGoal());
         editor.commit();
     }
 

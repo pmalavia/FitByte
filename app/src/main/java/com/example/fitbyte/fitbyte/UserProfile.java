@@ -36,7 +36,7 @@ public class UserProfile extends Activity {
     private ImageView profilePic;
     static final int REQUEST_IMAGE_CAPTURE = 1;
     public static Bitmap bitmap;
-    static public String nameM, genderM, activityM, goalM;
+    static public String nameM, genderM, activityM, goalM, caloriesM;
     static public int poundsM, weeksM, weightM, heightM, ageM;
 
 
@@ -45,20 +45,20 @@ public class UserProfile extends Activity {
         setContentView(R.layout.user_profile);
 
         SharedPreferences visit = getSharedPreferences("Visit2", Context.MODE_PRIVATE);
-         //this will make it so this page only appears once, the very first time
-         SharedPreferences.Editor editor = visit.edit();
+        //this will make it so this page only appears once, the very first time
+        SharedPreferences.Editor editor = visit.edit();
 
-         if(visit.getBoolean("activity_executed", false)){
-             Intent intent = new Intent(this, Homepage.class);
-             startActivity(intent);
-             finish();
-         }
-         else{
-             editor.putBoolean("activity_executed", true);
-             editor.commit();
-         }
+        if(visit.getBoolean("activity_executed", false)){
+            Intent intent = new Intent(this, Homepage.class);
+            startActivity(intent);
+            finish();
+        }
+        else{
+            editor.putBoolean("activity_executed", true);
+            editor.commit();
+        }
 
-         profilePic = (ImageView) findViewById(R.id.profilePic);
+        profilePic = (ImageView) findViewById(R.id.profilePic);
 
 
     }
@@ -177,14 +177,6 @@ public class UserProfile extends Activity {
             Toast.makeText(getApplicationContext(), "Please enter a valid activity level (S,LA,MA,or VA)", Toast.LENGTH_LONG).show();
         }
 
-
-        if (ageEx && heightEx && weightEx && activityInt  > 0) {
-
-
-            save();
-            Intent myIntent = new Intent(this, Homepage.class);
-            startActivity(myIntent);
-
         // CHECK Pounds
         try {
             int pounds = Integer.parseInt(editPounds.getText().toString());
@@ -211,7 +203,6 @@ public class UserProfile extends Activity {
             }
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(), "Please enter a valid entry for weeks", Toast.LENGTH_LONG).show();
-
         }
 
         // CHECK goal
@@ -239,8 +230,8 @@ public class UserProfile extends Activity {
     }
 
     public void save() {
-
-       SharedPreferences profileInfo = getSharedPreferences("UserInfo", Context.MODE_PRIVATE); //save all username info to internal memory
+        CalorieGoal calorieGoal = new CalorieGoal();
+        SharedPreferences profileInfo = getSharedPreferences("UserInfo", Context.MODE_PRIVATE); //save all username info to internal memory
         SharedPreferences.Editor editor = profileInfo.edit();
 
         editor.putString("Username", editName.getText().toString());
@@ -252,6 +243,7 @@ public class UserProfile extends Activity {
         editor.putInt("Userweeks", Integer.parseInt(editWeeks.getText().toString()));
         editor.putString("Useractivitylevel", editActivityLevel.getText().toString());
         editor.putString("Usergoal", editGoal.getText().toString());
+        editor.putString("calorieString",getStringCalorieGoal());
         editor.commit();
 
         nameM = profileInfo.getString("Username", "");
@@ -263,6 +255,7 @@ public class UserProfile extends Activity {
         weeksM = profileInfo.getInt("Userweeks", 1);
         poundsM = profileInfo.getInt("Usergainorlose", 1);
         goalM = profileInfo.getString("Usergoal", "");
+        caloriesM = profileInfo.getString("calorieString", "");
 
     }
 
@@ -295,6 +288,10 @@ public class UserProfile extends Activity {
     }
     public String getName() {
         return editName.getText().toString();
+    }
+
+    public String getCaloriesDaily(){
+        return caloriesM;
     }
 
 
@@ -332,7 +329,7 @@ public class UserProfile extends Activity {
 
         int tdee=0;
         int bmr = getBMR();
-       // String activity = getActivity1();
+        // String activity = getActivity1();
         String activity = userInfo1.getString("Useractivitylevel", "");
         switch(activity){
             case "Sedentary":
@@ -365,11 +362,11 @@ public class UserProfile extends Activity {
         //int pounds = userInfo1.getInt("Userintgoal", 0);
         double ppw;
         int dailyvarcals;
-       // String goal = getGainOrLose1();
+        // String goal = getGainOrLose1();
         int caloriegoal;
 
 
-        ppw = profileInfo.getInt("Userintgoal", 0)/profileInfo.getInt("Userweeks", 0);
+        ppw = (profileInfo.getInt("Userintgoal", 0))/(profileInfo.getInt("Userweeks", 0));
         dailyvarcals = (int)((ppw * 3500)/7);
 
 

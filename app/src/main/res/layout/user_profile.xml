@@ -47,246 +47,246 @@
             android:scrollbars="none">
 
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                    <ImageView
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:id="@+id/profilePic"
+                    android:src="@drawable/profile"
+                    android:onClick="dispatchTakePictureIntent"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"/>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:id="@+id/profilePic"
-                        android:src="@drawable/profile"
-                        android:onClick="dispatchTakePictureIntent"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="10dp"/>
+                        android:text="Full Name: "
+                        android:textSize="18dp"
+                        android:textColor="#3399FF"/>
 
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginBottom="10dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Full Name: "
-                            android:textSize="18dp"
-                            android:textColor="#3399FF"/>
-
-                        <EditText
-                            android:id="@+id/name"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:maxLines="1"
-                            android:singleLine="true"
-                            android:textColor="#000000" />
-
-                        </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginBottom="10dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Age: "
-                            android:textSize="18dp"
-                            android:textColor="#3399FF"/>
-
-                        <EditText
-                            android:id="@+id/age"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:maxLines="1"
-                            android:singleLine="true"
-                            android:textColor="#000000" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginBottom="10dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Height (Inches): "
-                            android:textSize="18dp"
-                            android:textColor="#3399FF"/>
-
-                        <EditText
-                            android:id="@+id/height"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:maxLines="1"
-                            android:singleLine="true"
-                            android:textColor="#000000" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginBottom="10dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Weight (Lbs.): "
-                            android:textSize="18dp"
-                            android:textColor="#3399FF"/>
-
-                        <EditText
-                            android:id="@+id/weight"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:maxLines="1"
-                            android:singleLine="true"
-                            android:textColor="#000000" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginBottom="10dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Activity Level: "
-                            android:textSize="18dp"
-                            android:textColor="#3399FF"/>
-
-                        <EditText
-                            android:id="@+id/activityLevel"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="S, LA, MA, or VA"
-                            android:maxLines="1"
-                            android:singleLine="true"
-                            android:textColorHint="#3399FF"
-                            android:textColor="#000000" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginBottom="10dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Gender: "
-                            android:textSize="18dp"
-                            android:textColor="#3399FF"/>
-
-                        <EditText
-                            android:id="@+id/gender"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Male or Female"
-                            android:maxLines="1"
-                            android:singleLine="true"
-                            android:textColorHint="#3399FF"
-                            android:textColor="#000000" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginBottom="10dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Goal: "
-                            android:textSize="18dp"
-                            android:textColor="#3399FF"/>
-
-                        <EditText
-                            android:id="@+id/goal"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Gain or Lose"
-                            android:maxLines="1"
-                            android:singleLine="true"
-                            android:textColorHint="#3399FF"
-                            android:textColor="#000000" />
-
-                    </LinearLayout>
-
-
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:layout_marginBottom="20dp">
-
-                        <EditText
-                            android:id="@+id/poundsGoal"
-                            android:layout_width="45dp"
-                            android:layout_height="wrap_content"
-                            android:maxLines="1"
-                            android:singleLine="true"
-                            android:textColor="#000000" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text=" pounds in "
-                            android:textSize="18sp"
-                            android:maxLines="1"
-                            android:singleLine="true"
-                            android:textColor="#3399FF" />
-
-                        <EditText
-                            android:id="@+id/weeksGoal"
-                            android:layout_width="45dp"
-                            android:layout_height="wrap_content"
-                            android:maxLines="1"
-                            android:singleLine="true"
-                            android:textColor="#000000" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text=" weeks."
-                            android:textSize="18sp"
-                            android:maxLines="1"
-                            android:singleLine="true"
-                            android:textColor="#3399FF" />
-
-
-                    </LinearLayout>
-
-                    <Button
-                        style="?android:textAppearanceSmall"
+                    <EditText
+                        android:id="@+id/name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:onClick="submitClicked"
-                        android:text="Create New Profile"
-                        android:textStyle="bold"
-                        android:textColor="#ffffffff"
-                        android:background="#ff7e51c2" />
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="#000000" />
 
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Age: "
+                        android:textSize="18dp"
+                        android:textColor="#3399FF"/>
+
+                    <EditText
+                        android:id="@+id/age"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="#000000" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Height (Inches): "
+                        android:textSize="18dp"
+                        android:textColor="#3399FF"/>
+
+                    <EditText
+                        android:id="@+id/height"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="#000000" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Weight (Lbs.): "
+                        android:textSize="18dp"
+                        android:textColor="#3399FF"/>
+
+                    <EditText
+                        android:id="@+id/weight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="#000000" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Activity Level: "
+                        android:textSize="18dp"
+                        android:textColor="#3399FF"/>
+
+                    <EditText
+                        android:id="@+id/activityLevel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="S, LA, MA, or VA"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColorHint="#3399FF"
+                        android:textColor="#000000" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Gender: "
+                        android:textSize="18dp"
+                        android:textColor="#3399FF"/>
+
+                    <EditText
+                        android:id="@+id/gender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Male or Female"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColorHint="#3399FF"
+                        android:textColor="#000000" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Goal: "
+                        android:textSize="18dp"
+                        android:textColor="#3399FF"/>
+
+                    <EditText
+                        android:id="@+id/goal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Gain or Lose"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColorHint="#3399FF"
+                        android:textColor="#000000" />
+
+                </LinearLayout>
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="20dp">
+
+                    <EditText
+                        android:id="@+id/poundsGoal"
+                        android:layout_width="45dp"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" pounds in "
+                        android:textSize="18sp"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="#3399FF" />
+
+                    <EditText
+                        android:id="@+id/weeksGoal"
+                        android:layout_width="45dp"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" weeks."
+                        android:textSize="18sp"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="#3399FF" />
+
+
+                </LinearLayout>
+
+                <Button
+                    style="?android:textAppearanceSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:onClick="submitClicked"
+                    android:text="Create New Profile"
+                    android:textStyle="bold"
+                    android:textColor="#ffffffff"
+                    android:background="#ff7e51c2" />
+
+            </LinearLayout>
         </ScrollView>
     </LinearLayout>
 </LinearLayout>
