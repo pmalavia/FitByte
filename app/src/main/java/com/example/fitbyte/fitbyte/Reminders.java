@@ -1,7 +1,9 @@
 package com.example.fitbyte.fitbyte;
 
+import android.app.AlarmManager;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -52,6 +54,8 @@ public class Reminders extends MenuNavigation {
         //SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:ss");
         //boolean checked = ((RadioButton) view).isChecked();//checked t or f
         timePicker = new TimePicker(getApplicationContext());
+
+
         notifications = new NotificationCompat.Builder(this);
         notifications.setAutoCancel(true); //once clicked it dissapears
         notifications.setSmallIcon(R.drawable.ic_launcher); //set little logo at the very top

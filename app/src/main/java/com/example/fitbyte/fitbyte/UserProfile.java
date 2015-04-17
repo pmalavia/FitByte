@@ -185,9 +185,10 @@ public class UserProfile extends Activity {
         }
 
 
-        if (ageEx && heightEx && weightEx && activityInt > 0) {
-            save();
+        if (ageEx && heightEx && weightEx && activityInt  > 0) {
 
+
+            save();
             Intent myIntent = new Intent(this, Homepage.class);
             startActivity(myIntent);
         }
@@ -197,7 +198,7 @@ public class UserProfile extends Activity {
 
     public void save() {
 
-        SharedPreferences profileInfo = getSharedPreferences("UserInfo", Context.MODE_PRIVATE); //save all username info to internal memory
+       SharedPreferences profileInfo = getSharedPreferences("UserInfo", Context.MODE_PRIVATE); //save all username info to internal memory
         SharedPreferences.Editor editor = profileInfo.edit();
 
         editor.putString("Username", editName.getText().toString());
@@ -427,7 +428,7 @@ public class UserProfile extends Activity {
         int caloriegoal;
 
 
-        ppw = (profileInfo.getInt("Userintgoal", 0))/(profileInfo.getInt("Userweeks", 0));
+        ppw = profileInfo.getInt("Userintgoal", 0)/profileInfo.getInt("Userweeks", 0);
         dailyvarcals = (int)((ppw * 3500)/7);
 
 
