@@ -397,8 +397,4 @@ public class MyWorkout extends MenuNavigation {
         }
     }
 
-    public void onBackPressed(){
-        Intent myIntent = new Intent(this, Homepage.class);
-        startActivity(myIntent);
-    }
 }

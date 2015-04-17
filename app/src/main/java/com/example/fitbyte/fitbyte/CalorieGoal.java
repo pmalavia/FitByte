@@ -28,11 +28,11 @@ SharedPreferences userInfo1 = getSharedPreferences("UserInfo", Context.MODE_PRIV
         int bmr;
         String gender = u.getGender1();
 
-        int weight = Integer.parseInt(u.getWeight1());
+        int weight = u.getWeight1();
         //int weight = Integer.parseInt(userInfo1.getString("Userweight", "")); //convert string to int
-        int age = Integer.parseInt(u.getAge1());
+        int age = u.getAge1();
         //int age = Integer.parseInt(userInfo1.getString("Userage", ""));
-        int height = Integer.parseInt(u.getHeight1());
+        int height = u.getHeight1();
         //int height = Integer.parseInt(userInfo1.getString("Userheight", ""));
 
         if(gender.equals("Male")){
@@ -81,13 +81,13 @@ SharedPreferences userInfo1 = getSharedPreferences("UserInfo", Context.MODE_PRIV
     int calcCalorieGoal(){
      // SharedPreferences  userInfo1 = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
 
-        int weeks = Integer.parseInt(u.getGoalWeeks1());
+        int weeks = u.getGoalWeeks1();
         //int weeks = userInfo1.getInt("Userweeks", 0);
-        int pounds = u.getGoal1();
+        int pounds = u.getGoalPounds1();
         //int pounds = userInfo1.getInt("Userintgoal", 0);
         double ppw;
         int dailyvarcals;
-        String goal = u.getGainOrLose1();
+        String goal = u.getGoal1();
         int caloriegoal;
 
 

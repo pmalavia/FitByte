@@ -69,4 +69,9 @@ public class WorkoutMain extends MenuNavigation {
         Intent myIntent = new Intent(this,MyWorkout.class);
         startActivity(myIntent);
     }
+
+    public void running(View view){
+        Intent myIntent = new Intent(this,DistanceTracker.class);
+        startActivity(myIntent);
+    }
 }
