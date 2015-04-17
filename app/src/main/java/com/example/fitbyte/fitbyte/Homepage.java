@@ -1,26 +1,14 @@
 package com.example.fitbyte.fitbyte;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.support.v4.widget.DrawerLayout;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
 
 public class Homepage extends MenuNavigation {
 
@@ -33,9 +21,6 @@ public class Homepage extends MenuNavigation {
     private TextView calBurned;
     private TextView net;
     private ImageView profilePicture;
-
-
-
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,15 +38,12 @@ public class Homepage extends MenuNavigation {
         profilePicture = (ImageView) findViewById(R.id.profilePicture);
 
         setDisplay();//initialize
-
     }
 
     private void setDisplay (){
-
-
         SharedPreferences userInfo = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
 
-       // UserProfile userInfo1 = new UserProfile(); //user information object
+        UserProfile userInfo1 = new UserProfile(); //user information object
 
         CalorieGoal dailyGoal = new CalorieGoal();//daily goal
 
@@ -89,16 +71,16 @@ public class Homepage extends MenuNavigation {
 
 
 
-        /**EditProfile editProfile = new EditProfile();
+        EditProfile editProfile = new EditProfile();
         if(editProfile.visited){
             profilePicture.setImageBitmap(editProfile.bitmap);
         }
         else {
             profilePicture.setImageBitmap(userInfo1.bitmap);
         }
-         */
+
     }
-    }
+}
 
 
 

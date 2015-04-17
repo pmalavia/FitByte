@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -17,16 +19,17 @@ import android.widget.Toast;
 public class EditProfile extends Activity {
 
     UserProfile up = new UserProfile();
-    EditText editName;
-    EditText editAge;
-    EditText editWeight;
-    EditText editHeight;
-    TextView goal;
-    TextView gender;
-    TextView gainLose;
-    TextView weeks;
-    TextView activityLevel;
-    boolean heightEx, weightEx, ageEx;
+
+    public static EditText editName;
+    public static EditText editAge;
+    public static EditText editWeight;
+    public static EditText editHeight;
+    public static EditText editGender;
+    public static EditText editActivityLevel;
+    public static EditText editPounds;
+    public static EditText editWeeks;
+    public static EditText editGoal;
+
     private ImageView profilePic;
     static final int REQUEST_IMAGE_CAPTURE = 1;
     public static Bitmap bitmap;
@@ -47,56 +50,61 @@ public class EditProfile extends Activity {
             profilePic.setImageBitmap(up.bitmap);
         }
 
-        weeks = (TextView) findViewById(R.id.weeks);
-        //weeks.setText(up.getStringWeeks());
-        weeks.setText(userInfo.getString("Usergoalweeks", ""));
+        editWeeks = (EditText) findViewById(R.id.weeksGoal);
+        editWeeks.setText(userInfo.getInt("Userweeks", 1) + "");
+
+        editPounds = (EditText) findViewById(R.id.poundsGoal);
+        editPounds.setText(userInfo.getInt("Usergoalpounds", 1) + "");
 
         editName = (EditText) findViewById(R.id.name);
-        //editName.setText(up.getName());
         editName.setText(userInfo.getString("Username", ""));
 
         editAge = (EditText) findViewById(R.id.age);
-        //editAge.setText(up.getStringAge());
-        editAge.setText(userInfo.getString("Userage", ""));
+        editAge.setText(userInfo.getInt("Userage", 1) + "");
 
         editWeight = (EditText) findViewById(R.id.weight);
-        //editWeight.setText(up.getStringWeight());
-        editWeight.setText(userInfo.getString("Userweight", ""));
+        editWeight.setText(userInfo.getInt("Userweight", 1) + "");
 
         editHeight = (EditText) findViewById(R.id.height);
-        //editHeight.setText(up.getStringHeight());
-        editHeight.setText(userInfo.getString("Userheight", ""));
+        editHeight.setText(userInfo.getInt("Userheight", 1) + "");
 
-        gainLose = (TextView) findViewById(R.id.gainLose);
-        //gainLose.setText(up.getGainOrLose());
-        gainLose.setText((userInfo.getString("Usergainorlose", "")));
+        editGoal = (EditText) findViewById(R.id.goal);
+        editGoal.setText(userInfo.getString("Usergoal", ""));
 
-        goal = (TextView) findViewById(R.id.goal);
-        //goal.setText(up.getStringGoal());
-        goal.setText(userInfo.getString("Userweightgoal", "")); //desired weight lose/gain goal
+        editGender = (EditText) findViewById(R.id.gender);
+        editGender.setText(userInfo.getString("Usergender", ""));
 
-        gender = (TextView) findViewById(R.id.gender);
-        //gender.setText(up.getGender());
-        gender.setText(userInfo.getString("Usergender", ""));
-
-        activityLevel = (TextView) findViewById(R.id.activityLevel);
-        //activityLevel.setText(up.getActivity());
-        activityLevel.setText(userInfo.getString("Useractivitylevel", ""));
+        editActivityLevel = (EditText) findViewById(R.id.activityLevel);
+        editActivityLevel.setText(userInfo.getString("Useractivitylevel", ""));
     }
 
     public void submitClicked(View view) {
-        /**up.setName(editName);
+        boolean ageEx = false;
+        boolean heightEx = false;
+        boolean weightEx = false;
+        boolean genderEx = false;
+        boolean activityEx = false;
+        boolean poundsEx = false;
+        boolean weeksEx = false;
+        boolean goalEx = false;
 
+        editName = (EditText) findViewById(R.id.name);
+        editAge = (EditText) findViewById(R.id.age);
+        editWeight = (EditText) findViewById(R.id.weight);
+        editHeight = (EditText) findViewById(R.id.height);
+        editGender = (EditText) findViewById(R.id.gender);
+        editActivityLevel = (EditText) findViewById(R.id.activityLevel);
+        editPounds = (EditText) findViewById(R.id.poundsGoal);
+        editWeeks = (EditText) findViewById(R.id.weeksGoal);
+        editGoal = (EditText) findViewById(R.id.goal);
 
-        up.setAge(editAge);
-        up.setWeight(editWeight);
-        up.setHeight(editHeight);
-        */
-
+        //  CHECK AGE
         try {
             int age = Integer.parseInt(editAge.getText().toString());
             ageEx = true;
             if (age > 90 || age < 10) {
+                editAge.setTypeface(null, Typeface.BOLD);
+                editAge.setTextColor(Color.RED);
                 Toast.makeText(getApplicationContext(), "Please enter a valid age", Toast.LENGTH_LONG).show();
                 ageEx = false;
             }
@@ -104,10 +112,13 @@ public class EditProfile extends Activity {
             Toast.makeText(getApplicationContext(), "Please enter a valid age", Toast.LENGTH_LONG).show();
         }
 
+        // CHECK WEIGHT
         try {
             int weight = Integer.parseInt(editWeight.getText().toString());
             weightEx = true;
             if (weight > 400 || weight < 50) {
+                editWeight.setTypeface(null, Typeface.BOLD);
+                editWeight.setTextColor(Color.RED);
                 Toast.makeText(getApplicationContext(), "Please enter a valid weight", Toast.LENGTH_LONG).show();
                 weightEx = false;
             }
@@ -115,10 +126,13 @@ public class EditProfile extends Activity {
             Toast.makeText(getApplicationContext(), "Please enter a valid weight", Toast.LENGTH_LONG).show();
         }
 
+        // CHECK HEIGHT
         try {
             int height = Integer.parseInt(editHeight.getText().toString());
             heightEx = true;
             if (height > 90 || height < 24) {
+                editHeight.setTypeface(null, Typeface.BOLD);
+                editHeight.setTextColor(Color.RED);
                 Toast.makeText(getApplicationContext(), "Please enter a valid height", Toast.LENGTH_LONG).show();
                 heightEx = false;
             }
@@ -126,7 +140,87 @@ public class EditProfile extends Activity {
             Toast.makeText(getApplicationContext(), "Please enter a valid height", Toast.LENGTH_LONG).show();
         }
 
-        if (ageEx && heightEx && weightEx) {
+        // CHECK GENDER
+        try {
+            String gender = editGender.getText().toString();
+            genderEx = true;
+            if (gender.equalsIgnoreCase("Male") || gender.equalsIgnoreCase("Female")) {
+                // do nothing
+            }
+            else{
+                editGender.setTypeface(null, Typeface.BOLD);
+                editGender.setTextColor(Color.RED);
+                Toast.makeText(getApplicationContext(), "Please enter a valid gender (Male or Female)", Toast.LENGTH_LONG).show();
+                genderEx = false;
+            }
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), "Please enter a valid gender (Male or Female)", Toast.LENGTH_LONG).show();
+        }
+
+        // CHECK ACTIVITY LEVEL
+        try {
+            String activityLevel = editActivityLevel.getText().toString();
+            activityEx = true;
+            if (activityLevel.equalsIgnoreCase("S") || activityLevel.equalsIgnoreCase("LA") || activityLevel.equalsIgnoreCase("MA")
+                    || activityLevel.equalsIgnoreCase("VA")) {
+                //  do nothing
+            }
+            else{
+                editActivityLevel.setTypeface(null, Typeface.BOLD);
+                editActivityLevel.setTextColor(Color.RED);
+                Toast.makeText(getApplicationContext(), "Please enter a valid activity level (S,LA,MA,or VA)", Toast.LENGTH_LONG).show();
+                activityEx = false;
+            }
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), "Please enter a valid activity level (S,LA,MA,or VA)", Toast.LENGTH_LONG).show();
+        }
+
+        // CHECK Pounds
+        try {
+            int pounds = Integer.parseInt(editPounds.getText().toString());
+            poundsEx = true;
+            if (pounds > 400 || pounds < 1) {
+                editPounds.setTypeface(null, Typeface.BOLD);
+                editPounds.setTextColor(Color.RED);
+                Toast.makeText(getApplicationContext(), "Please enter a valid entry for pounds", Toast.LENGTH_LONG).show();
+                poundsEx = false;
+            }
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), "Please enter a valid entry for pounds", Toast.LENGTH_LONG).show();
+        }
+
+        // CHECK Weeks
+        try {
+            int weeks = Integer.parseInt(editWeeks.getText().toString());
+            weeksEx = true;
+            if (weeks > 400 || weeks < 1) {
+                editWeeks.setTypeface(null, Typeface.BOLD);
+                editWeeks.setTextColor(Color.RED);
+                Toast.makeText(getApplicationContext(), "Please enter a valid entry for weeks", Toast.LENGTH_LONG).show();
+                weeksEx = false;
+            }
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), "Please enter a valid entry for weeks", Toast.LENGTH_LONG).show();
+        }
+
+        // CHECK goal
+        try {
+            String goal = editGoal.getText().toString();
+            goalEx = true;
+            if (goal.equalsIgnoreCase("Lose") || goal.equalsIgnoreCase("Gain")) {
+                //  do nothing
+            }
+            else{
+                editGoal.setTypeface(null, Typeface.BOLD);
+                editGoal.setTextColor(Color.RED);
+                Toast.makeText(getApplicationContext(), "Please enter a valid goal (Gain or Lose)", Toast.LENGTH_LONG).show();
+                goalEx = false;
+            }
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), "Please enter a valid goal (gain or lose", Toast.LENGTH_LONG).show();
+        }
+
+        if (ageEx && heightEx && weightEx && genderEx && activityEx && poundsEx && weeksEx && goalEx) {
             Intent myIntent = new Intent(this, Homepage.class);
             startActivity(myIntent);
         }
@@ -135,17 +229,16 @@ public class EditProfile extends Activity {
         SharedPreferences.Editor editor = userInfo.edit();
 
         editor.putString("Username", editName.getText().toString());
-        editor.putString("Userage", editAge.getText().toString());
-        editor.putString("Userweight", editWeight.getText().toString());
-        editor.putString("Userheight", editHeight.getText().toString());
+        editor.putInt("Userage", Integer.parseInt(editAge.getText().toString()));
+        editor.putInt("Userweight", Integer.parseInt(editWeight.getText().toString()));
+        editor.putInt("Userheight", Integer.parseInt(editHeight.getText().toString()));
+        editor.putString("Usergender", editGender.getText().toString());
+        editor.putInt("Userweeks", Integer.parseInt(editWeeks.getText().toString()));
+        editor.putString("Usergoal", editGoal.getText().toString());
+        editor.putInt("Usergoalpounds", Integer.parseInt(editPounds.getText().toString()));
+        editor.putString("Useractivitylevel", editActivityLevel.getText().toString());
 
         editor.commit();
-
-        /**up.setName(editName);
-        up.setAge(editAge);
-        up.setWeight(editWeight);
-        up.setHeight(editHeight);
-        */
     }
 
     public void dispatchTakePictureIntent(View view) {
