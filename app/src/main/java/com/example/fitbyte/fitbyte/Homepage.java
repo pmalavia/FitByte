@@ -57,18 +57,14 @@ public class Homepage extends MenuNavigation {
         name.setText(userInfo.getString("Username", "").toString()); //from memory
 
         //fullWeightGoal.setText(userInfo.getGainOrLose() + " Weight");
-        fullWeightGoal.setText(userInfo.getString("Usergainorlose", ""));
+        fullWeightGoal.setText(userInfo.getString("Usergoal","") + " " + userInfo1.getPoundsM() + " pounds" );
 
         //goalTime.setText(userInfo.getStringWeeks() + " Weeks");
-        goalTime.setText(userInfo.getString("Usergoalweeks", ""));
+        goalTime.setText(userInfo1.getGoalWeeks1()+"");
 
         dailyCalGoal.setText( userInfo.getString("calorieString", ""));
 
-
-
-
-
-
+        caloriesRemaining.setText(userInfo1.getStringCalorieGoal());
 
 
         EditProfile editProfile = new EditProfile();

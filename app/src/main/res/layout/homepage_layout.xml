@@ -31,7 +31,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="2000"
             android:id="@+id/tvCaloriesRemaining"
             android:layout_below="@+id/cal_remaining"
             android:layout_alignRight="@+id/cal_remaining"
