@@ -21,6 +21,7 @@ public class Homepage extends MenuNavigation {
     private TextView calBurned;
     private TextView net;
     private ImageView profilePicture;
+    private   int caloriegoal;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +37,61 @@ public class Homepage extends MenuNavigation {
         calBurned = (TextView) findViewById(R.id.tvCalBurned);
         net = (TextView) findViewById(R.id.tvNet);
         profilePicture = (ImageView) findViewById(R.id.profilePicture);
+//----------------------------- calorie goal ----------------------------------------------------
+        SharedPreferences profileInfo = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = profileInfo.edit();
+        double bmr;
+        int tdee =0 ;
+        double ppw;
+        int dailyvarcals;
+        if(profileInfo.getString("Usergender", "").equalsIgnoreCase("Male")){
+            bmr =  ((65 + (6.23*profileInfo.getInt("Userweight", 0)) + (12.7*profileInfo.getInt("Userheight", 0)) - (6.8*profileInfo.getInt("Userage", 0))) +0.5);
+        }
+        else{
+            bmr =  ((655 + (4.35*profileInfo.getInt("Userweight", 0)) + (4.7*profileInfo.getInt("Userheight", 0)) - (4.7*profileInfo.getInt("Userage", 0))) +0.5);
+        }
+
+        String x = profileInfo.getString("Useractivitylevel", "");
+        switch(x){
+            case "S":
+                tdee = (int)((bmr * 1.2) + 0.5);
+                break;
+            case "LA":
+                tdee = (int)((bmr * 1.375) + 0.5);
+                break;
+            case "MA":
+                tdee = (int)((bmr * 1.55) + 0.5);
+                break;
+            case "VA":
+                tdee = (int)((bmr * 1.725) + 0.5);
+                break;
+            case "s":
+                tdee = (int)((bmr * 1.2) + 0.5);
+                break;
+            case "la":
+                tdee = (int)((bmr * 1.375) + 0.5);
+                break;
+            case "ma":
+                tdee = (int)((bmr * 1.55) + 0.5);
+                break;
+            case "va":
+                tdee = (int)((bmr * 1.725) + 0.5);
+                break;
+        }
+
+        ppw = (profileInfo.getInt("Usergoalpounds", 0))/(profileInfo.getInt("Userweeks", 0));
+        dailyvarcals = (int)((ppw * 3500)/7);
+
+        if( profileInfo.getString("Usergoal", "").equalsIgnoreCase("Gain")){
+            caloriegoal = tdee + dailyvarcals;
+        }
+        else{
+            caloriegoal = tdee - dailyvarcals;
+        }
+        int t = (int) bmr;
+        editor.putInt("Caloriegoal", caloriegoal); //Saving caloriegoal for other classes, use this
+        //in order to get the result
+        editor.commit();
 
         setDisplay();//initialize
     }
@@ -57,14 +113,14 @@ public class Homepage extends MenuNavigation {
         name.setText(userInfo.getString("Username", "").toString()); //from memory
 
         //fullWeightGoal.setText(userInfo.getGainOrLose() + " Weight");
-        fullWeightGoal.setText(userInfo.getString("Usergoal","") + " " + userInfo1.getPoundsM() + " pounds" );
+        fullWeightGoal.setText(userInfo.getString("Usergoal","") + " " + Integer.toString(userInfo.getInt("Usergoalpounds", 0)) + " pounds" );
 
-        //goalTime.setText(userInfo.getStringWeeks() + " Weeks");
-        goalTime.setText(userInfo1.getGoalWeeks1()+"");
+        goalTime.setText("in " + Integer.toString(userInfo.getInt("Userweeks", 0)) + " weeks");
+        //goalTime.setText(userInfo1.getGoalWeeks1()+"");
 
-        dailyCalGoal.setText( userInfo.getString("calorieString", ""));
+        dailyCalGoal.setText( Integer.toString(userInfo.getInt("Caloriegoal", 1))); //tvGoal
 
-        caloriesRemaining.setText(userInfo1.getStringCalorieGoal());
+        caloriesRemaining.setText(Integer.toString(userInfo.getInt("Caloriegoal", 0)) + " - Net");
 
 
         EditProfile editProfile = new EditProfile();
@@ -76,6 +132,8 @@ public class Homepage extends MenuNavigation {
         }
 
     }
+
+
 }
 
 

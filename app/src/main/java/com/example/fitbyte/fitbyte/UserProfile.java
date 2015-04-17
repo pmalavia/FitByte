@@ -249,7 +249,7 @@ public class UserProfile extends Activity {
         editor.putString("Usergoal", editGoal.getText().toString());
         editor.putString("calorieString",getStringCalorieGoal());
         editor.commit();
-
+/**
         nameM = profileInfo.getString("Username", "");
         ageM = profileInfo.getInt("Userage", 1);
         heightM = profileInfo.getInt("Userheight", 1);
@@ -260,7 +260,7 @@ public class UserProfile extends Activity {
         poundsM = profileInfo.getInt("UserGoalPounds", 1);
         goalM = profileInfo.getString("UserGainOrLose", "");
         caloriesM = profileInfo.getString("calorieString", "");
-
+*/
 
         // CALORIE CALCULATIONS -------------------------------------------------------------------
 
@@ -297,6 +297,7 @@ public class UserProfile extends Activity {
             caloriegoal = tdee - dailyvarcals;
         }
     }
+
 
     public String getName1() {
         return nameM;
