@@ -250,16 +250,7 @@ public class UserProfile extends Activity {
         editor.putString("calorieString",getStringCalorieGoal());
         editor.commit();
 
-        nameM = profileInfo.getString("Username", "");
-        ageM = profileInfo.getInt("Userage", 1);
-        heightM = profileInfo.getInt("Userheight", 1);
-        weightM = profileInfo.getInt("Userweight", 1);
-        genderM = profileInfo.getString("Usergender", "");
-        activityM = profileInfo.getString("Useractivitylevel", "");
-        weeksM = profileInfo.getInt("UserGoalWeeks", 1);
-        poundsM = profileInfo.getInt("UserGoalPounds", 1);
-        goalM = profileInfo.getString("UserGainOrLose", "");
-        caloriesM = profileInfo.getString("calorieString", "");
+
 
 
         // CALORIE CALCULATIONS -------------------------------------------------------------------
@@ -299,7 +290,7 @@ public class UserProfile extends Activity {
 
         //Shared Preferences for Daily Exercises---------------------------------------------------
 
-        SharedPreferences dailyExercises = getSharedPreferences("dailyExercises", Context.MODE_PRIVATE);
+       /* SharedPreferences dailyExercises = getSharedPreferences("dailyExercises", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor2 = dailyExercises.edit();
 
         editor2.putString("exercise1", " ");
@@ -309,7 +300,7 @@ public class UserProfile extends Activity {
         editor.putInt("counter", 0);
         editor2.commit();
 
-
+*/
     }
 
 
