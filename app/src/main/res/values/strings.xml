@@ -18,7 +18,18 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-
-
+    <string-array name="cardio_exercise_array">
+        <item>Bicycling</item>
+        <item>Calisthenics</item>
+        <item>Resistance</item>
+        <item>Rowing</item>
+        <item>Jogging</item>
+        <item>Running</item>
+        <item>Basketball</item>
+        <item>Skateboarding</item>
+        <item>Tennis</item>
+        <item>Walking</item>
+        <item>Swimming</item>
+    </string-array>
 
 </resources>

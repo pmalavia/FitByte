@@ -249,7 +249,7 @@ public class UserProfile extends Activity {
         editor.putString("Usergoal", editGoal.getText().toString());
         editor.putString("calorieString",getStringCalorieGoal());
         editor.commit();
-/**
+
         nameM = profileInfo.getString("Username", "");
         ageM = profileInfo.getInt("Userage", 1);
         heightM = profileInfo.getInt("Userheight", 1);
@@ -260,7 +260,7 @@ public class UserProfile extends Activity {
         poundsM = profileInfo.getInt("UserGoalPounds", 1);
         goalM = profileInfo.getString("UserGainOrLose", "");
         caloriesM = profileInfo.getString("calorieString", "");
-*/
+
 
         // CALORIE CALCULATIONS -------------------------------------------------------------------
 
@@ -296,6 +296,20 @@ public class UserProfile extends Activity {
         else{
             caloriegoal = tdee - dailyvarcals;
         }
+
+        //Shared Preferences for Daily Exercises---------------------------------------------------
+
+        SharedPreferences dailyExercises = getSharedPreferences("dailyExercises", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor2 = dailyExercises.edit();
+
+        editor2.putString("exercise1", " ");
+        editor2.putString("exercise2", " ");
+        editor2.putString("exercise3", " ");
+        editor.putInt("dailyExerciseValue", 0);
+        editor.putInt("counter", 0);
+        editor2.commit();
+
+
     }
 
 
@@ -330,12 +344,12 @@ public class UserProfile extends Activity {
         return editName.getText().toString();
     }
 
-    public String getCaloriesDaily(){
+    public static String getCaloriesDaily(){
         return caloriesM;
     }
 
 
-    public int getCalorieGoal(){
+    public static int getCalorieGoal(){
 
         return caloriegoal;
     }

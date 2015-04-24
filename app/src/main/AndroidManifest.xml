@@ -59,6 +59,10 @@
             android:label="@string/app_name" >
         </activity>
         <activity
+            android:name=".NewExercise"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
             android:name=".MyWorkout"
             android:label="@string/app_name"
             android:parentActivityName=".WorkoutMain"
