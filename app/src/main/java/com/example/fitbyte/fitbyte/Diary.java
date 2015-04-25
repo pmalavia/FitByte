@@ -23,9 +23,14 @@ public class Diary extends MenuNavigation {
         setContentView(R.layout.diary_layout);
         super.onCreateDrawer();
         LinearLayout layout = (LinearLayout) findViewById(R.id.diarylayout);
+        TextView diaryExerciseValue = (TextView) findViewById(R.id.diaryExerciseValue);
+        TextView diaryFoodValue = (TextView) findViewById(R.id.diaryFoodValue);
+        TextView diaryGoal = (TextView) findViewById(R.id.diaryGoalValue);
 
         SharedPreferences dailyExercises = getSharedPreferences("dailyExercises", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = dailyExercises.edit();
+
+        SharedPreferences userInfo = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
 
         int counter = dailyExercises.getInt("counter", 0);
 
@@ -38,7 +43,7 @@ public class Diary extends MenuNavigation {
             temp = temp - dailyExercises.getInt("exerciseCaloriesValue1", 0);
             editor.putInt("dailyExerciseValue", temp);
             editor.commit();
-            exerciseValue = dailyExercises.getInt("dailyExerciseValue", 1);
+            exerciseValue = dailyExercises.getInt("dailyExerciseValue", 0);
             layout.addView(exerciseText1);
         }
         else if (!dailyExercises.getString("exercise2", "").equals(" ") && counter == 1) {
@@ -52,7 +57,7 @@ public class Diary extends MenuNavigation {
             temp = temp - dailyExercises.getInt("exerciseCaloriesValue2", 0);
             editor.putInt("dailyExerciseValue", temp);
             editor.commit();
-            exerciseValue = dailyExercises.getInt("dailyExerciseValue", 1);
+            exerciseValue = dailyExercises.getInt("dailyExerciseValue", 0);
             layout.addView(exerciseText1);
             layout.addView(exerciseText2);
         }
@@ -69,7 +74,7 @@ public class Diary extends MenuNavigation {
             temp = temp - dailyExercises.getInt("exerciseCaloriesValue3", 0);
             editor.putInt("dailyExerciseValue", temp);
             editor.commit();
-            exerciseValue = dailyExercises.getInt("dailyExerciseValue", 1);
+            exerciseValue = dailyExercises.getInt("dailyExerciseValue", 0);
             layout.addView(exerciseText1);
             layout.addView(exerciseText2);
             layout.addView(exerciseText3);
@@ -86,19 +91,21 @@ public class Diary extends MenuNavigation {
             layout.addView(exerciseText3);
         }
 
-        TextView diaryGoal = (TextView) findViewById(R.id.diaryGoalValue);
-        calorieGoal = UserProfile.getCalorieGoal();
-        diaryGoal.setText(String.valueOf(calorieGoal));
 
-        TextView diaryFoodValue = (TextView) findViewById(R.id.diaryFoodValue);
+
+
+        calorieGoal = (userInfo.getInt("Caloriegoal", 0));
+        diaryGoal.setText(Integer.toString(calorieGoal));
+
+
         foodValue = 0;
         diaryFoodValue.setText(String.valueOf(foodValue));
 
-        TextView diaryExerciseValue = (TextView) findViewById(R.id.diaryExerciseValue);
-        diaryExerciseValue.setText(String.valueOf("(" + exerciseValue + ")"));
+
+        diaryExerciseValue.setText("(" + Integer.toString(dailyExercises.getInt("dailyExerciseValue", 0)) + ")");
 
         TextView diaryRemainingValue = (TextView) findViewById(R.id.diaryRemainingValue);
-        remainingValue = calorieGoal + foodValue + exerciseValue;
+        remainingValue = calorieGoal + foodValue + dailyExercises.getInt("dailyExerciseValue", 0);
         diaryRemainingValue.setText(String.valueOf(remainingValue));
     }
 
