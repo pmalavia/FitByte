@@ -107,6 +107,11 @@ public class Diary extends MenuNavigation {
         startActivity(i);
     }
 
+    public void foodClicked(View view){
+        Intent i = new Intent(this, searchPage.class);
+        startActivity(i);
+    }
+
     public void running(View view){
         Intent myIntent = new Intent(this, DistanceTracker.class);
         startActivity(myIntent);

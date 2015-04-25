@@ -38,7 +38,11 @@ public class MyWorkout extends MenuNavigation {
     int getReps;
 
     String[] weights = new String[]{"5 lbs.", "10 lbs.","15 lbs.","20 lbs.","25 lbs.","30 lbs.",
-            "35 lbs.","40 lbs.","45 lbs.","50 lbs.","55 lbs.","60 lbs.","65 lbs.","70 lbs.","75 lbs.",};
+            "35 lbs.","40 lbs.","45 lbs.","50 lbs.","55 lbs.","60 lbs.","65 lbs.","70 lbs.","75 lbs.",
+             "80 lbs.", "85 lbs.", "90 lbs.", "95 lbs.", "100 lbs.", "105 lbs.", "110 lbs.", "115 lbs.",
+            "120 lbs.", "125 lbs.", "130 lbs.", "135 lbs.", "140 lbs.", "145 lbs.", "150 lbs.", "155 lbs.",
+            "160 lbs.", "165 lbs.", "170 lbs.", "175 lbs.", "180 lbs.", "185 lbs.", "190 lbs.", "195 lbs.",
+            "200 lbs."};
 
     int getWeight;
 
@@ -63,18 +67,24 @@ public class MyWorkout extends MenuNavigation {
         reps01.setDisplayedValues(reps);
         reps01.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                getReps = newVal;
+                if(newVal == oldVal)
+                    getReps = 1;
+                else
+                    getReps = newVal;
             }
         });
 
         weight01 = (NumberPicker)findViewById(R.id.weight01);
         weight01.setMinValue(1);
-        weight01.setMaxValue(15);
+        weight01.setMaxValue(40);
         weight01.setDisplayedValues(weights);
 
         weight01.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                getWeight = newVal;
+                if(newVal == oldVal)
+                    getWeight = 5;
+                else
+                    getWeight = newVal;
             }
         });
 
@@ -84,18 +94,24 @@ public class MyWorkout extends MenuNavigation {
         reps02.setDisplayedValues(reps);
         reps02.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                getReps = newVal;
+                if(newVal == oldVal)
+                    getReps = 1;
+                else
+                    getReps = newVal;
             }
         });
 
         weight02 = (NumberPicker)findViewById(R.id.weight02);
         weight02.setMinValue(1);
-        weight02.setMaxValue(15);
+        weight02.setMaxValue(40);
         weight02.setDisplayedValues(weights);
 
         weight02.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                getWeight = newVal;
+                if(newVal == oldVal)
+                    getWeight = 5;
+                else
+                    getWeight = newVal;
             }
         });
 
@@ -105,18 +121,24 @@ public class MyWorkout extends MenuNavigation {
         reps03.setDisplayedValues(reps);
         reps03.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                getReps = newVal;
+                if(newVal == oldVal)
+                    getReps = 1;
+                else
+                    getReps = newVal;
             }
         });
 
         weight03 = (NumberPicker)findViewById(R.id.weight03);
         weight03.setMinValue(1);
-        weight03.setMaxValue(15);
+        weight03.setMaxValue(40);
         weight03.setDisplayedValues(weights);
 
         weight03.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                getWeight = newVal;
+                if(newVal == oldVal)
+                    getWeight = 5;
+                else
+                    getWeight = newVal;
             }
         });
 
@@ -126,18 +148,24 @@ public class MyWorkout extends MenuNavigation {
         reps04.setDisplayedValues(reps);
         reps04.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                getReps = newVal;
+                if(newVal == oldVal)
+                    getReps = 1;
+                else
+                    getReps = newVal;
             }
         });
 
         weight04 = (NumberPicker)findViewById(R.id.weight04);
         weight04.setMinValue(1);
-        weight04.setMaxValue(15);
+        weight04.setMaxValue(40);
         weight04.setDisplayedValues(weights);
 
         weight04.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                getWeight = newVal;
+                if(newVal == oldVal)
+                    getWeight = 5;
+                else
+                    getWeight = newVal;
             }
         });
 
@@ -147,18 +175,24 @@ public class MyWorkout extends MenuNavigation {
         reps05.setDisplayedValues(reps);
         reps05.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                getReps = newVal;
+                if(newVal == oldVal)
+                    getReps = 1;
+                else
+                    getReps = newVal;
             }
         });
 
         weight05 = (NumberPicker)findViewById(R.id.weight05);
         weight05.setMinValue(1);
-        weight05.setMaxValue(15);
+        weight05.setMaxValue(40);
         weight05.setDisplayedValues(weights);
 
         weight05.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                getWeight = newVal;
+                if(newVal == oldVal)
+                    getWeight = 5;
+                else
+                    getWeight = newVal;
             }
         });
 
@@ -220,6 +254,10 @@ public class MyWorkout extends MenuNavigation {
                 break;
         }
         l = ma.k;
+    }
+    public void onBackPressed(){
+        Intent i = new Intent(this, WorkoutMain.class);
+        startActivity(i);
     }
 
     protected void settingText(ArrayList list){

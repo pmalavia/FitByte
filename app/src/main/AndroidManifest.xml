@@ -50,6 +50,15 @@
             android:name=".Calendar"
             android:label="@string/app_name" >
         </activity>
+
+        <activity
+            android:name=".itemDetailActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".searchListActivity"
+            android:label="@string/app_name" >
+        </activity>
         <activity
             android:name=".WorkoutMain"
             android:label="@string/app_name" >
@@ -60,6 +69,10 @@
         </activity>
         <activity
             android:name=".NewExercise"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".searchPage"
             android:label="@string/app_name" >
         </activity>
         <activity

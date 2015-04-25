@@ -12,7 +12,6 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".LoginActivity"
-    android:background="#ffebfffc"
     android:descendantFocusability="beforeDescendants"
     android:focusableInTouchMode="true">
 
@@ -157,7 +156,7 @@
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:layout_marginBottom="10dp">
 
                     <TextView
@@ -167,22 +166,42 @@
                         android:textSize="18dp"
                         android:textColor="#3399FF"/>
 
-                    <EditText
-                        android:id="@+id/activityLevel"
-                        android:layout_width="match_parent"
+                    <RadioGroup
+                        android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:hint="S, LA, MA, or VA"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:textColorHint="#3399FF"
-                        android:textColor="#000000" />
+                        android:orientation="horizontal"
+                        android:id="@+id/activityLevel">
 
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="S"
+                            android:id="@+id/sedentary"
+                            android:layout_marginRight="3dp"/>
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="LA"
+                            android:id="@+id/lightlyActive"
+                            android:layout_marginRight="3dp"/>
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="MA"
+                            android:id="@+id/moderatelyActive"
+                            android:layout_marginRight="3dp"/>
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="VA"
+                            android:id="@+id/veryActive"/>
+                        </RadioGroup>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:layout_marginBottom="10dp">
 
                     <TextView
@@ -191,23 +210,31 @@
                         android:text="Gender: "
                         android:textSize="18dp"
                         android:textColor="#3399FF"/>
-
-                    <EditText
-                        android:id="@+id/gender"
-                        android:layout_width="match_parent"
+                    <RadioGroup
+                        android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Male or Female"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:textColorHint="#3399FF"
-                        android:textColor="#000000" />
+                        android:orientation="horizontal"
+                        android:id="@+id/gender">
 
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Male"
+                            android:id="@+id/male"
+                            android:layout_marginRight="3dp"/>
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Female"
+                            android:id="@+id/female"
+                            android:layout_marginRight="3dp"/>
+                    </RadioGroup>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:layout_marginBottom="10dp">
 
                     <TextView
@@ -217,15 +244,26 @@
                         android:textSize="18dp"
                         android:textColor="#3399FF"/>
 
-                    <EditText
-                        android:id="@+id/goal"
-                        android:layout_width="match_parent"
+                    <RadioGroup
+                        android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Gain or Lose"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:textColorHint="#3399FF"
-                        android:textColor="#000000" />
+                        android:orientation="horizontal"
+                        android:id="@+id/goal">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Gain"
+                        android:id="@+id/gain"
+                        android:layout_marginRight="3dp"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lose"
+                        android:id="@+id/lose"
+                        android:layout_marginRight="3dp"/>
+                    </RadioGroup>
+
 
                 </LinearLayout>
 
