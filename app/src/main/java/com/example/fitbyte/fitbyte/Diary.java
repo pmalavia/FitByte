@@ -1,5 +1,6 @@
 package com.example.fitbyte.fitbyte;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -11,12 +12,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import org.w3c.dom.Text;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Diary extends MenuNavigation {
 
     public static int calorieGoal;
     public static int foodValue;
     public static int exerciseValue;
-    public static int remainingValue;
+    public static int calorieStatus;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,22 +95,22 @@ public class Diary extends MenuNavigation {
             layout.addView(exerciseText3);
         }
 
-
-
-
         calorieGoal = (userInfo.getInt("Caloriegoal", 0));
         diaryGoal.setText(Integer.toString(calorieGoal));
-
 
         foodValue = 0;
         diaryFoodValue.setText(String.valueOf(foodValue));
 
-
         diaryExerciseValue.setText("(" + Integer.toString(dailyExercises.getInt("dailyExerciseValue", 0)) + ")");
 
-        TextView diaryRemainingValue = (TextView) findViewById(R.id.diaryRemainingValue);
-        remainingValue = calorieGoal + foodValue + dailyExercises.getInt("dailyExerciseValue", 0);
-        diaryRemainingValue.setText(String.valueOf(remainingValue));
+        TextView diaryCalorieStatus = (TextView) findViewById(R.id.diaryCalorieStatus);
+        calorieStatus = foodValue + dailyExercises.getInt("dailyExerciseValue", 0) - calorieGoal;
+        diaryCalorieStatus.setText(String.valueOf(calorieStatus));
+
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String currentDateandTime = sdf.format(new Date());
+        TextView date = (TextView) findViewById(R.id.date);
+        date.setText(currentDateandTime);
     }
 
     public void onClick(View view) {
