@@ -285,6 +285,7 @@ public class UserProfile extends Activity {
         editor.putString("calorieString",getStringCalorieGoal());
         editor.commit();
 
+
         nameM = profileInfo.getString("Username", "");
         ageM = profileInfo.getInt("Userage", 1);
         heightM = profileInfo.getInt("Userheight", 1);
@@ -295,6 +296,7 @@ public class UserProfile extends Activity {
         poundsM = profileInfo.getInt("Usergoalpounds", 1);
         goalM = profileInfo.getString("Usergoal", "");
         caloriesM = profileInfo.getString("calorieString", "");
+
 
 
         // CALORIE CALCULATIONS -------------------------------------------------------------------

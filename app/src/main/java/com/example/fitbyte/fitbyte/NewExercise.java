@@ -34,11 +34,18 @@ public class NewExercise extends MenuNavigation implements AdapterView.OnItemSel
         setContentView(R.layout.newexercise_layout);
         super.onCreateDrawer();
 
+        editMinutes = (EditText)findViewById(R.id.edit_minutes);
+
         Spinner spinner = (Spinner)findViewById(R.id.cardio_exercise_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.cardio_exercise_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+
+        SharedPreferences profileInfo = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+        weight = profileInfo.getInt("Userweight", 0);
+
+
     }
 
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
@@ -94,11 +101,11 @@ public class NewExercise extends MenuNavigation implements AdapterView.OnItemSel
     }
 
     public void onClick(View view) {
-        SharedPreferences profileInfo = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+
 
         boolean minutesEx = false;
-        weight = profileInfo.getInt("Userweight", 1);
-        editMinutes = (EditText)findViewById(R.id.edit_minutes);
+
+
 
         try {
             int minutes = Integer.parseInt(editMinutes.getText().toString());

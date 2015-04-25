@@ -98,6 +98,7 @@ public class Homepage extends MenuNavigation {
 
     private void setDisplay (){
         SharedPreferences userInfo = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+        SharedPreferences dailyExercises = getSharedPreferences("dailyExercises", Context.MODE_PRIVATE);
 
         UserProfile userInfo1 = new UserProfile(); //user information object
 
@@ -112,6 +113,7 @@ public class Homepage extends MenuNavigation {
         //name.setText(userInfo.getName());
         name.setText(userInfo.getString("Username", "").toString()); //from memory
 
+
         //fullWeightGoal.setText(userInfo.getGainOrLose() + " Weight");
         fullWeightGoal.setText(userInfo.getString("Usergoal","") + " " + Integer.toString(userInfo.getInt("Usergoalpounds", 0)) + " pounds" );
 
@@ -120,8 +122,11 @@ public class Homepage extends MenuNavigation {
 
         dailyCalGoal.setText( Integer.toString(userInfo.getInt("Caloriegoal", 1))); //tvGoal
 
-        caloriesRemaining.setText(Integer.toString(userInfo.getInt("Caloriegoal", 0)) + " - Net");
+        caloriesRemaining.setText(Integer.toString(userInfo.getInt("Caloriegoal", 0) - userInfo.getInt("IntakeValue", 0) - dailyExercises.getInt("dailyExerciseValue", 0)));
+        calBurned.setText(Integer.toString(dailyExercises.getInt("dailyExerciseValue", 0)));
 
+        net.setText(Integer.toString(userInfo.getInt("IntakeValue", 0) + dailyExercises.getInt("dailyExerciseValue", 0)));
+        //IntakeValue for the calorie intake, not yet working.
 
         EditProfile editProfile = new EditProfile();
         if(editProfile.visited){
