@@ -1,7 +1,9 @@
 package com.example.fitbyte.fitbyte;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -400,4 +402,15 @@ public class UserProfile extends Activity {
         return Integer.parseInt(editPounds.getText().toString());
     }
 
+    public void showAlert(View view) {AlertDialog.Builder myAlert = new AlertDialog.Builder(this);
+        myAlert.setMessage("S=Sedentary\nSA=Slightly Active\nMA=Moderately Active\nVA=Very Active")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .create();
+        myAlert.show();
+    }
 }
