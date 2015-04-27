@@ -29,7 +29,7 @@ public class Reminders extends MenuNavigation {
     Date date;
 
     NotificationCompat.Builder notifications;
-    private static final int uniqueID = 123; //identity for notification
+    private static final int breakfastId = 123, lunchId = 32, dinnerId = 01; //identity for notification
 
 
 
@@ -79,7 +79,7 @@ public class Reminders extends MenuNavigation {
                    PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
                    notifications.setContentIntent(pendingIntent);
                    NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                    nm.notify(uniqueID, notifications.build());
+                    nm.notify(breakfastId, notifications.build());
                 }
 
 
@@ -90,7 +90,7 @@ public class Reminders extends MenuNavigation {
                     PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
                     notifications.setContentIntent(pendingIntent);
                     NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                    nm.notify(uniqueID, notifications.build());
+                    nm.notify(lunchId, notifications.build());
                 }
 
 
@@ -102,7 +102,7 @@ public class Reminders extends MenuNavigation {
                     PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
                     notifications.setContentIntent(pendingIntent);
                     NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                    nm.notify(uniqueID, notifications.build());
+                    nm.notify(dinnerId, notifications.build());
                 }
 
         }
