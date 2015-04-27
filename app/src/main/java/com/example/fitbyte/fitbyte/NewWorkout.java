@@ -38,24 +38,29 @@ public class NewWorkout extends MenuNavigation implements View.OnClickListener {
 
 
     protected CharSequence[] chest = { "Barbell Bench Press", "Incline Dumbbell Press",
-            "Incline Dumbbell Fly", "Decline Dumbbell Press" };
+            "Incline Dumbbell Fly", "Decline Dumbbell Press", "Incline Barbell Bench Press",
+            "Butterfly","Cable Crossover","Flat Dumbbell Press","Flat Dumbbell Fly",
+            "Smith Press"};
 
-    protected CharSequence[] back = { "Deadlift", "Bent Over Row", "Pull Ups", "Good Mornings",
-            "T-Bar Rows", "Seated Cable Rows" };
+    protected CharSequence[] back = { "Deadlift", "Bent Over Row", "Chin Ups", "Good Mornings",
+            "T-Bar Rows", "Seated Cable Rows","Leverage High Row","One Arm Dumbbell Row",
+            "Wide Grip Pull ups","Wide Grip Lat Pulldown"};
 
     protected CharSequence[] shoulders = { "Military Press", "Lateral Raises", "Upright Rows",
-            "Shrugs"};
+            "Shrugs","Arm Circles","Vertical Raises","Arnold Press","Dumbbell Shoulder Press",
+            "Clean and Jerk","Reverse Flys"};
 
-    protected CharSequence[] biceps = { "Barbell Curl", "Dumbbell Curl", "Hammer Curls",
-            "EZ Bar Curl"};
+    protected CharSequence[] biceps = { "Barbell Curl", "Dumbbell Curl", "Hammer Curl",
+            "EZ Bar Curl", "Drag Curl", "Cable Curl", "Preacher Curl", "Concentration Curl"};
 
-    protected CharSequence[] triceps = { "Skullcrushers", "Rope Pushdowns", "Dips",
-            "Close Grip Bench Press"};
+    protected CharSequence[] triceps = { "Skullcrushers", "Rope Pushdowns", "Bench Dips",
+            "Close Grip Bench Press", "EZ Bar Tricep Extension", "Seated Tricep Press"};
 
     protected CharSequence[] legs = { "Barbell Squats", "Leg Press", "Standing Calf Raises",
-            "Dumbbell Lunges"};
+            "Dumbbell Lunges", "Seated Calf Raises", "Wall Squats", "Lying Leg Curls"};
 
-    protected CharSequence[] abs = { "Crunches", "Sit Ups", "Leg Raises", "Plank"};
+    protected CharSequence[] abs = { "Crunches", "Sit Ups", "Leg Raises", "Plank", "Air Bike",
+                                    "Ab Rollout", "Oblique Crunches"};
 
 
     protected ArrayList<CharSequence> myList = new ArrayList<CharSequence>();
@@ -85,6 +90,11 @@ public class NewWorkout extends MenuNavigation implements View.OnClickListener {
         selectTricepButton.setOnClickListener(this);
         selectLegButton.setOnClickListener(this);
         selectAbButton.setOnClickListener(this);
+    }
+
+    public void onBackPressed(){
+        Intent i = new Intent(this, WorkoutMain.class);
+        startActivity(i);
     }
 
     public void onClick(View view) {
