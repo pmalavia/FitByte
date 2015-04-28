@@ -1,7 +1,9 @@
 package com.example.fitbyte.fitbyte;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -276,7 +278,7 @@ public class EditProfile extends Activity {
             Intent myIntent = new Intent(this, Homepage.class);
             startActivity(myIntent);
         }
-       
+
         SharedPreferences userInfo = getSharedPreferences("UserInfo", Context.CONTEXT_IGNORE_SECURITY);
         SharedPreferences.Editor editor = userInfo.edit();
 
@@ -307,5 +309,18 @@ public class EditProfile extends Activity {
             bitmap = (Bitmap) extras.get("data");
             profilePic.setImageBitmap(bitmap);
         }
+    }
+
+    public void showHelp(View view) {AlertDialog.Builder myAlert = new AlertDialog.Builder(this);
+        myAlert.setMessage("How would you describe your daily activity level?\n\n" +
+                "S = Sedentary\nSA = Slightly Active\nMA = Moderately Active\nVA = Very Active")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .create();
+        myAlert.show();
     }
 }

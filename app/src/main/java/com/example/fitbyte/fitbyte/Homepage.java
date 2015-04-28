@@ -65,18 +65,6 @@ public class Homepage extends MenuNavigation {
             case "VA":
                 tdee = (bmr * 1.725) + 0.5;
                 break;
-            case "s":
-                tdee = (bmr * 1.2) + 0.5;
-                break;
-            case "la":
-                tdee = (bmr * 1.375) + 0.5;
-                break;
-            case "ma":
-                tdee = (bmr * 1.55) + 0.5;
-                break;
-            case "va":
-                tdee = (bmr * 1.725) + 0.5;
-                break;
         }
 
         ppw = (double)(profileInfo.getInt("Usergoalpounds", 0))/(profileInfo.getInt("Userweeks", 0));

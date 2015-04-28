@@ -403,7 +403,8 @@ public class UserProfile extends Activity {
     }
 
     public void showAlert(View view) {AlertDialog.Builder myAlert = new AlertDialog.Builder(this);
-        myAlert.setMessage("S=Sedentary\nSA=Slightly Active\nMA=Moderately Active\nVA=Very Active")
+        myAlert.setMessage("How would you describe your daily activity level?\n\n" +
+                "S = Sedentary\nSA = Slightly Active\nMA = Moderately Active\nVA = Very Active")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
