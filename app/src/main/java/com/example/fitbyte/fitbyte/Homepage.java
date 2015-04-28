@@ -111,10 +111,10 @@ public class Homepage extends MenuNavigation {
 
         dailyCalGoal.setText( Integer.toString(userInfo.getInt("Caloriegoal", 1))); //tvGoal
 
-        caloriesRemaining.setText(Integer.toString(userInfo.getInt("Caloriegoal", 0) - userInfo.getInt("IntakeValue", 0) - dailyExercises.getInt("dailyExerciseValue", 0)));
+        caloriesRemaining.setText(Integer.toString(userInfo.getInt("Caloriegoal", 0) - (foodLogs.getInt("CaloriesConsumed", 0) + dailyExercises.getInt("dailyExerciseValue", 0))));
         calBurned.setText(Integer.toString(dailyExercises.getInt("dailyExerciseValue", 0)));
         calConsumed.setText(Integer.toString(foodLogs.getInt("CaloriesConsumed",0)));
-        net.setText(Integer.toString(userInfo.getInt("IntakeValue", 0) + dailyExercises.getInt("dailyExerciseValue", 0)));
+        net.setText(Integer.toString(foodLogs.getInt("CaloriesConsumed", 0) + dailyExercises.getInt("dailyExerciseValue", 0)));
         //IntakeValue for the calorie intake, not yet working.
 
         EditProfile editProfile = new EditProfile();
@@ -122,7 +122,7 @@ public class Homepage extends MenuNavigation {
             profilePicture.setImageBitmap(editProfile.bitmap);
         }
         else {
-            profilePicture.setImageBitmap(userInfo1.bitmap);
+            profilePicture.setImageResource(R.drawable.ic_launcher);
         }
 
     }
