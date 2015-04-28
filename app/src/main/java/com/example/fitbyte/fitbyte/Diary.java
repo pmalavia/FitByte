@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.text.Layout;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -18,9 +19,13 @@ import java.util.Date;
 public class Diary extends MenuNavigation {
 
     public static int calorieGoal;
-    public static int foodValue;
     public static int exerciseValue;
     public static int calorieStatus;
+
+    public static boolean breakfast = false;
+    public static boolean lunch = false;
+    public static boolean dinner = false;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +38,9 @@ public class Diary extends MenuNavigation {
 
         SharedPreferences dailyExercises = getSharedPreferences("dailyExercises", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = dailyExercises.edit();
+
+        SharedPreferences foodLogs = getSharedPreferences("foodLogs", Context.MODE_PRIVATE);
+        SharedPreferences workouts = getSharedPreferences("workouts", Context.MODE_PRIVATE);
 
         SharedPreferences userInfo = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
 
@@ -98,19 +106,40 @@ public class Diary extends MenuNavigation {
         calorieGoal = (userInfo.getInt("Caloriegoal", 0));
         diaryGoal.setText(Integer.toString(calorieGoal));
 
-        foodValue = 0;
-        diaryFoodValue.setText(String.valueOf(foodValue));
+        diaryFoodValue.setText(Integer.toString(foodLogs.getInt("CaloriesConsumed",0)));
 
         diaryExerciseValue.setText("(" + Integer.toString(dailyExercises.getInt("dailyExerciseValue", 0)) + ")");
 
         TextView diaryCalorieStatus = (TextView) findViewById(R.id.diaryCalorieStatus);
-        calorieStatus = foodValue + dailyExercises.getInt("dailyExerciseValue", 0) - calorieGoal;
+        calorieStatus = foodLogs.getInt("CaloriesConsumed",0) + dailyExercises.getInt("dailyExerciseValue", 0) - calorieGoal;
         diaryCalorieStatus.setText(String.valueOf(calorieStatus));
 
         @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         String currentDateandTime = sdf.format(new Date());
         TextView date = (TextView) findViewById(R.id.date);
         date.setText(currentDateandTime);
+
+        TextView textView4 = (TextView)findViewById(R.id.breakfastTV1);
+        TextView textView5 = (TextView)findViewById(R.id.breakfastTV2);
+        TextView textView6 = (TextView)findViewById(R.id.lunchTV1);
+        TextView textView7 = (TextView)findViewById(R.id.lunchTV2);
+        TextView textView8 = (TextView)findViewById(R.id.dinnerTV1);
+        TextView textView9 = (TextView)findViewById(R.id.dinnerTV2);
+
+
+        textView4.setText(foodLogs.getString("item1",""));
+        textView5.setText(foodLogs.getString("item2",""));
+        textView6.setText(foodLogs.getString("item3",""));
+        textView7.setText(foodLogs.getString("item4",""));
+        textView8.setText(foodLogs.getString("item5",""));
+        textView9.setText(foodLogs.getString("item6",""));
+
+        TextView textView1 = (TextView)findViewById(R.id.workoutTV1);
+        TextView textView2 = (TextView)findViewById(R.id.workoutTV2);
+        TextView textView3 = (TextView)findViewById(R.id.workoutTV3);
+        textView1.setText(workouts.getString("workoutName1",""));
+        textView2.setText(workouts.getString("workoutName2",""));
+        textView3.setText(workouts.getString("workoutName3",""));
     }
 
     public void onClick(View view) {
@@ -118,15 +147,41 @@ public class Diary extends MenuNavigation {
         startActivity(i);
     }
 
-    public void foodClicked(View view){
+    public void breakfastClicked(View view){
+        breakfast = true;
+        lunch = false;
+        dinner = false;
+        Intent i = new Intent(this, searchPage.class);
+        startActivity(i);
+    }
+    public void lunchClicked(View view){
+        breakfast = false;
+        lunch = true;
+        dinner = false;
+        Intent i = new Intent(this, searchPage.class);
+        startActivity(i);
+    }
+    public void dinnerClicked(View view){
+        breakfast = false;
+        lunch = false;
+        dinner = true;
         Intent i = new Intent(this, searchPage.class);
         startActivity(i);
     }
 
-    public void running(View view){
-        Intent myIntent = new Intent(this, DistanceTracker.class);
-        startActivity(myIntent);
+    public void onClickWorkout(View view){
+        Intent i = new Intent(this, WorkoutMain.class);
+        startActivity(i);
+    }
 
+    public boolean getBreakfast(){
+        return breakfast;
+    }
+    public boolean getLunch(){
+        return lunch;
+    }
+    public boolean getDinner(){
+        return dinner;
     }
 }
 

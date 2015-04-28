@@ -17,6 +17,7 @@ public class Homepage extends MenuNavigation {
     private TextView name;
     private TextView goalTime;
     private TextView fullWeightGoal;
+    private TextView calConsumed;
     private TextView dailyCalGoal;
     private TextView calBurned;
     private TextView net;
@@ -32,6 +33,7 @@ public class Homepage extends MenuNavigation {
         caloriesRemaining = (TextView) findViewById(R.id.tvCaloriesRemaining);
         name = (TextView) findViewById(R.id.tvName);
         goalTime = (TextView) findViewById(R.id.tvTimeLeft);
+        calConsumed = (TextView) findViewById(R.id.tvCalConsumed);
         fullWeightGoal = (TextView) findViewById(R.id.tvWeightGoal);
         dailyCalGoal = (TextView) findViewById(R.id.tvGoal);
         calBurned = (TextView) findViewById(R.id.tvCalBurned);
@@ -87,7 +89,7 @@ public class Homepage extends MenuNavigation {
     private void setDisplay (){
         SharedPreferences userInfo = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
         SharedPreferences dailyExercises = getSharedPreferences("dailyExercises", Context.MODE_PRIVATE);
-
+        SharedPreferences foodLogs = getSharedPreferences("foodLogs", Context.MODE_PRIVATE);
         UserProfile userInfo1 = new UserProfile(); //user information object
 
 
@@ -111,7 +113,7 @@ public class Homepage extends MenuNavigation {
 
         caloriesRemaining.setText(Integer.toString(userInfo.getInt("Caloriegoal", 0) - userInfo.getInt("IntakeValue", 0) - dailyExercises.getInt("dailyExerciseValue", 0)));
         calBurned.setText(Integer.toString(dailyExercises.getInt("dailyExerciseValue", 0)));
-
+        calConsumed.setText(Integer.toString(foodLogs.getInt("CaloriesConsumed",0)));
         net.setText(Integer.toString(userInfo.getInt("IntakeValue", 0) + dailyExercises.getInt("dailyExerciseValue", 0)));
         //IntakeValue for the calorie intake, not yet working.
 

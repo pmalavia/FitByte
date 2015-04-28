@@ -1,10 +1,13 @@
 package com.example.fitbyte.fitbyte;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 
@@ -20,7 +23,7 @@ public class itemDetailActivity extends ActionBarActivity {
     TextView srvSize;
     TextView srvUnit;
     TextView srvWeight;
-
+    public static int calorieTotal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,13 +56,75 @@ public class itemDetailActivity extends ActionBarActivity {
 
     }
 
-/*
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_item_detail, menu);
-        return true;
-    }*/
+    public void itemAdded(View view){
+        Diary diary = new Diary();
+        boolean breakfast = diary.getBreakfast();
+        boolean lunch = diary.getLunch();
+        boolean dinner = diary.getDinner();
+
+        SharedPreferences foodLogs = getSharedPreferences("foodLogs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = foodLogs.edit();
+
+        String food1;
+        String food2;
+        String food3;
+        String food4;
+        String food5;
+        String food6;
+
+        food1 = foodLogs.getString("item1", "");
+        food2 = foodLogs.getString("item2", "");
+        food3 = foodLogs.getString("item3", "");
+        food4 = foodLogs.getString("item4", "");
+        food5 = foodLogs.getString("item5", "");
+        food6 = foodLogs.getString("item6", "");
+
+        if(breakfast){
+            if(food1.equals("")){
+                calorieTotal += selectedItem.getCalories();
+                editor.putInt("CaloriesConsumed",calorieTotal);
+                editor.putString("item1", selectedItem.getItemName() + " gains " + selectedItem.getCalories() + " calories");
+                editor.commit();
+            }
+            else if(food2.equals("")){
+                calorieTotal += selectedItem.getCalories();
+                editor.putInt("CaloriesConsumed",calorieTotal);
+                editor.putString("item2", selectedItem.getItemName() + " gains " + selectedItem.getCalories() + " calories");
+                editor.commit();
+            }
+        }
+        else if(lunch){
+            if(food3.equals("")){
+                calorieTotal += selectedItem.getCalories();
+                editor.putInt("CaloriesConsumed",calorieTotal);
+                editor.putString("item3", selectedItem.getItemName() + " gains " + selectedItem.getCalories() + " calories");
+                editor.commit();
+            }
+            else if(food4.equals("")){
+                calorieTotal += selectedItem.getCalories();
+                editor.putInt("CaloriesConsumed",calorieTotal);
+                editor.putString("item4", selectedItem.getItemName() + " gains " + selectedItem.getCalories() + " calories");
+                editor.commit();
+            }
+        }
+        else if(dinner){
+            if(food5.equals("")){
+                calorieTotal += selectedItem.getCalories();
+                editor.putInt("CaloriesConsumed",calorieTotal);
+                editor.putString("item5", selectedItem.getItemName() + " gains " + selectedItem.getCalories() + " calories");
+                editor.commit();
+            }
+            else if(food6.equals("")){
+                calorieTotal += selectedItem.getCalories();
+                editor.putInt("CaloriesConsumed",calorieTotal);
+                editor.putString("item6", selectedItem.getItemName() + " gains " + selectedItem.getCalories() + " calories");
+                editor.commit();
+            }
+        }
+
+        Intent myIntent = new Intent(this,Diary.class);
+        startActivity(myIntent);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

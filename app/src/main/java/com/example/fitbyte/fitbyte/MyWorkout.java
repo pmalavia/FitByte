@@ -1,6 +1,8 @@
 package com.example.fitbyte.fitbyte;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -59,7 +61,7 @@ public class MyWorkout extends MenuNavigation {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.myworkout_layout);
 
-
+        SharedPreferences workouts = getSharedPreferences("workouts", Context.MODE_PRIVATE);
 
         reps01 = (NumberPicker)findViewById(R.id.reps01);
         reps01.setMaxValue(1);
@@ -350,6 +352,28 @@ public class MyWorkout extends MenuNavigation {
     }
 
     public void finishWorkout(View view){
+        SharedPreferences workouts = getSharedPreferences("workouts", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = workouts.edit();
+        String workout1;
+        String workout2;
+        String workout3;
+
+        workout1 = workouts.getString("workoutName1", "");
+        workout2 = workouts.getString("workoutName2", "");
+        workout3 = workouts.getString("workoutName3", "");
+
+        if(workout1.equals("")){
+            editor.putString("workoutName1","1. " + ma.n + " Workout");
+            editor.commit();
+        }
+        else if(workout2.equals("")){
+            editor.putString("workoutName2","2. " + ma.n + " Workout");
+            editor.commit();
+        }
+        else if(workout3.equals("")){
+            editor.putString("workoutName3","3. " + ma.n + " Workout");
+            editor.commit();
+        }
         Intent myIntent = new Intent(this, WorkoutMain.class);
         startActivity(myIntent);
     }

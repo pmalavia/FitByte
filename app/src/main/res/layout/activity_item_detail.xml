@@ -175,5 +175,6 @@
         android:id="@+id/addItemButton"
         android:layout_below="@+id/textView8"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp" />
+        android:layout_marginTop="42dp"
+        android:onClick="itemAdded"/>
 </RelativeLayout>

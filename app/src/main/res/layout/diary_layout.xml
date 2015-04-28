@@ -114,7 +114,7 @@
                 style="?android:textAppearanceSmall"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:onClick="foodClicked"
+                android:onClick="breakfastClicked"
                 android:text="Add Breakfast"
                 android:textStyle="bold"
                 android:textColor="#ffffffff"
@@ -123,6 +123,23 @@
                 android:layout_toRightOf="@+id/diaryBreakfast"/>
 
         </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="18dp"
+                android:id="@+id/breakfastTV1"
+                android:text=""/>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="18dp"
+                android:text=""
+                android:id="@+id/breakfastTV2"/>
+
+        </LinearLayout>
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="20dp"
@@ -140,7 +157,7 @@
                 style="?android:textAppearanceSmall"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:onClick="foodClicked"
+                android:onClick="lunchClicked"
                 android:text="Add Lunch"
                 android:textStyle="bold"
                 android:textColor="#ffffffff"
@@ -148,7 +165,25 @@
                 android:id="@+id/addLunchButton"
                 android:layout_toRightOf="@+id/diaryLunch"/>
 
+
         </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="18dp"
+                android:id="@+id/lunchTV1"
+                android:text=""/>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="18dp"
+                android:text=""
+                android:id="@+id/lunchTV2"/>
+
+        </LinearLayout>
 
 
         <RelativeLayout
@@ -168,7 +203,7 @@
                 style="?android:textAppearanceSmall"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:onClick="foodClicked"
+                android:onClick="dinnerClicked"
                 android:text="Add Dinner"
                 android:textStyle="bold"
                 android:textColor="#ffffffff"
@@ -177,6 +212,73 @@
                 android:layout_toRightOf="@+id/diaryDinner"/>
 
         </RelativeLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="18dp"
+                android:id="@+id/dinnerTV1"
+                android:text=""/>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="18dp"
+                android:text=""
+                android:id="@+id/dinnerTV2"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="20dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="fill_parent"
+                android:background="@drawable/textview"
+                android:text="Workouts"
+                android:id="@+id/diaryWorkout"
+                />
+
+            <Button
+                style="?android:textAppearanceSmall"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:onClick="onClickWorkout"
+                android:text="Add Workout"
+                android:textStyle="bold"
+                android:textColor="#ffffffff"
+                android:background="#B8B8B8"
+                android:id="@+id/addWorkoutButton"
+                android:layout_toRightOf="@+id/diaryWorkout"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:orientation="vertical"
+            android:id="@+id/workoutLayout">
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="18dp"
+                android:id="@+id/workoutTV1"
+                android:text=""/>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="18dp"
+                android:text=""
+                android:id="@+id/workoutTV2"/>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="18dp"
+                android:text=""
+                android:id="@+id/workoutTV3"/>
+
+            </LinearLayout>
 
 
         <RelativeLayout
@@ -206,6 +308,7 @@
                 android:layout_toRightOf="@+id/diaryExercise"/>
 
         </RelativeLayout>
+
 
     </LinearLayout>
 
