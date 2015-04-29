@@ -2,7 +2,6 @@ package com.example.fitbyte.fitbyte;
 
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -108,7 +107,7 @@ public class MenuNavigation extends ActionBarActivity {
                 startActivity(new Intent(this, WorkoutMain.class));
                 break;
             case 4 :
-                startActivity(new Intent(this, Calendar.class));
+                startActivity(new Intent(this, myCalendar.class));
                 break;
             case 5:
                 startActivity(new Intent(this, Reminders.class));

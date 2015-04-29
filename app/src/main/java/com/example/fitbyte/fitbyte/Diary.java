@@ -174,6 +174,11 @@ public class Diary extends MenuNavigation {
         startActivity(i);
     }
 
+    public void notesClicked(View view){
+        Intent i = new Intent(this, Notes.class);
+        startActivity(i);
+    }
+
     public boolean getBreakfast(){
         return breakfast;
     }

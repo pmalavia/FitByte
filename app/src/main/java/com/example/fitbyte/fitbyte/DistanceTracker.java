@@ -127,8 +127,8 @@ public class DistanceTracker extends MenuNavigation implements LocationListener{
 
     public void finishClick(View view){
         double dist = distFrom(latitude_one,longitude_one,latitude_two,longitude_two);
-        time.setText(hours + " hours, " + minutes + " minutes, " + seconds + " seconds.");
-        distance.setText(dist +"");
+        time.setText("Time : " + hours + " :" + minutes + " :" + seconds);
+        distance.setText("Distance traveled : " + dist);
     }
 
 
