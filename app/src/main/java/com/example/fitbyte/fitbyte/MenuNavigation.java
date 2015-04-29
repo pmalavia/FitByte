@@ -57,7 +57,7 @@ public class MenuNavigation extends ActionBarActivity {
 
 
 
-        menu = new String[]{"Home", "Diary","Profile", "Workouts","Calendar","Reminders"};
+        menu = new String[]{"Home", "Diary","Profile", "Workouts","Calendar","Reminders","Notes"};
         adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menu);
         listView.setAdapter(adapter);
         listView.setSelector(android.R.color.holo_blue_dark);
@@ -121,6 +121,9 @@ public class MenuNavigation extends ActionBarActivity {
                 break;
             case 5:
                 startActivity(new Intent(this, Reminders.class));
+                break;
+            case 6 :
+                startActivity(new Intent(this, Notes.class));
             default:break;
         }
     }
