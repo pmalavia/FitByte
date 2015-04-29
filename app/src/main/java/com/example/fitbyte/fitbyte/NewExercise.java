@@ -44,55 +44,129 @@ public class NewExercise extends MenuNavigation implements AdapterView.OnItemSel
 
         SharedPreferences profileInfo = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
         weight = profileInfo.getInt("Userweight", 0);
-
-
     }
 
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
 
-        if (parent.getItemAtPosition(pos).toString().equals("Bicycling")) {
-            met = 7.5;
-            exerciseText = "Bicycling";
-        }
-        else if (parent.getItemAtPosition(pos).toString().equals("Calisthenics")) {
-            met = 8.0;
-            exerciseText = "Calisthenics";
-        }
-        else if (parent.getItemAtPosition(pos).toString().equals("Resistance")) {
-            met = 6;
-            exerciseText = "Resistance";
-        }
-        else if (parent.getItemAtPosition(pos).toString().equals("Rowing")) {
-            met = 4.8;
-            exerciseText = "Rowing";
-        }
-        else if (parent.getItemAtPosition(pos).toString().equals("Jogging")) {
-            met = 7.0;
-            exerciseText = "Jogging";
-        }
-        else if (parent.getItemAtPosition(pos).toString().equals("Running")) {
-            met = 10.0;
-            exerciseText = "Running";
+        if (parent.getItemAtPosition(pos).toString().equals("Badminton")) {
+            met = 5.5;
+            exerciseText = "Badminton";
         }
         else if (parent.getItemAtPosition(pos).toString().equals("Basketball")) {
             met = 6.5;
             exerciseText = "Basketball";
         }
+        else if (parent.getItemAtPosition(pos).toString().equals("Bicycling (light)")) {
+            met = 6.8;
+            exerciseText = "Bicycling (light)";
+        }
+        else if (parent.getItemAtPosition(pos).toString().equals("Bicycling (moderate)")) {
+            met = 8.0;
+            exerciseText = "Bicycling (moderate)";
+        }
+        else if (parent.getItemAtPosition(pos).toString().equals("Bicycling (vigorous)")) {
+            met = 10.0;
+            exerciseText = "Bicycling (vigorous)";
+        }
+        else if (parent.getItemAtPosition(pos).toString().equals("Boxing")) {
+            met = 12.8;
+            exerciseText = "Boxing";
+        }
+        else if (parent.getItemAtPosition(pos).toString().equals("Bowling")) {
+            met = 3.8;
+            exerciseText = "Bowling";
+        }
+        else if (parent.getItemAtPosition(pos).toString().equals("Calisthenics (light)")) {
+            met = 2.8;
+            exerciseText = "Calisthenics (light)";
+        }
+        else if (parent.getItemAtPosition(pos).toString().equals("Calisthenics (moderate)")) {
+            met = 3.8;
+            exerciseText = "Calisthenics (moderate)";
+        }
+        else if (parent.getItemAtPosition(pos).toString().equals("Calisthenics (vigorous)")) {
+            met = 8.0;
+            exerciseText = "Calisthenics (vigorous)";
+        }
+        else if (parent.getItemAtPosition(pos).toString().equals("Fencing")) {
+            met = 6.0;
+            exerciseText = "Fencing";
+        }
+        else if (parent.getItemAtPosition(pos).toString().equals("Football")) {
+            met = 8.0;
+            exerciseText = "Football";
+        }
+        else if (parent.getItemAtPosition(pos).toString().equals("Golf")) {
+            met = 4.8;
+            exerciseText = "Golf";
+        }
+        else if (parent.getItemAtPosition(pos).toString().equals("Racquetball")) {
+            met = 7.0;
+            exerciseText = "Racquetball";
+        }
+        else if (parent.getItemAtPosition(pos).toString().equals("Rock Climbing (low-moderate)")) {
+            met = 5.8;
+            exerciseText = "Rock Climbing (low-moderate)";
+        }
+        else if (parent.getItemAtPosition(pos).toString().equals("Rock Climbing (difficult)")) {
+            met = 7.5;
+            exerciseText = "Rock Climbing (difficult)";
+        }
+        else if (parent.getItemAtPosition(pos).toString().equals("Running (10 min/mile)")) {
+            met = 9.8;
+            exerciseText = "Running (10 min/mile)";
+        }
+        else if (parent.getItemAtPosition(pos).toString().equals("Running (8 min/mile)")) {
+            met = 11.8;
+            exerciseText = "Running (8 min/mile)";
+        }
+        else if (parent.getItemAtPosition(pos).toString().equals("Running (6 min/mile)")) {
+            met = 14.5;
+            exerciseText = "Running (6 min/mile)";
+        }
+        else if (parent.getItemAtPosition(pos).toString().equals("Running (5 min/mile)")) {
+            met = 19.0;
+            exerciseText = "Running (5 min/mile)";
+        }
+        else if (parent.getItemAtPosition(pos).toString().equals("Running (4.3 min/mile)")) {
+            met = 23.0;
+            exerciseText = "Running (4.3 min/mile)";
+        }
         else if (parent.getItemAtPosition(pos).toString().equals("Skateboarding")) {
             met = 5.0;
             exerciseText = "Skateboarding";
+        }
+        else if (parent.getItemAtPosition(pos).toString().equals("Soccer (general)")) {
+            met = 7.0;
+            exerciseText = "Soccer (general)";
+        }
+        else if (parent.getItemAtPosition(pos).toString().equals("Soccer (competitive)")) {
+            met = 10.0;
+            exerciseText = "Soccer (competitive)";
+        }
+        else if (parent.getItemAtPosition(pos).toString().equals("Softball")) {
+            met = 5.0;
+            exerciseText = "Softball";
+        }
+        else if (parent.getItemAtPosition(pos).toString().equals("Swimming (light-moderate)")) {
+            met = 5.8;
+            exerciseText = "Swimming (light-moderate)";
+        }
+        else if (parent.getItemAtPosition(pos).toString().equals("Swimming (competition)")) {
+            met = 10.3;
+            exerciseText = "Swimming (competition)";
         }
         else if (parent.getItemAtPosition(pos).toString().equals("Tennis")) {
             met = 7.3;
             exerciseText = "Tennis";
         }
+        else if (parent.getItemAtPosition(pos).toString().equals("Volleyball")) {
+            met = 6.0;
+            exerciseText = "Volleyball";
+        }
         else if (parent.getItemAtPosition(pos).toString().equals("Walking")) {
             met = 3.5;
             exerciseText = "Walking";
-        }
-        else if (parent.getItemAtPosition(pos).toString().equals("Swimming")) {
-            met = 5.8;
-            exerciseText = "Swimming";
         }
     }
 
@@ -102,10 +176,7 @@ public class NewExercise extends MenuNavigation implements AdapterView.OnItemSel
 
     public void onClick(View view) {
 
-
         boolean minutesEx = false;
-
-
 
         try {
             int minutes = Integer.parseInt(editMinutes.getText().toString());
@@ -155,7 +226,6 @@ public class NewExercise extends MenuNavigation implements AdapterView.OnItemSel
 
             Intent i = new Intent(this, Diary.class);
             startActivity(i);
-
         }
     }
 }

@@ -19,17 +19,36 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string-array name="cardio_exercise_array">
-        <item>Bicycling</item>
-        <item>Calisthenics</item>
-        <item>Resistance</item>
-        <item>Rowing</item>
-        <item>Jogging</item>
-        <item>Running</item>
+        <item>Badminton</item>
         <item>Basketball</item>
+        <item>Bicycling (light)</item>
+        <item>Bicycling (moderate)</item>
+        <item>Bicycling (vigorous)</item>
+        <item>Boxing</item>
+        <item>Bowling</item>
+        <item>Calisthenics (light)</item>
+        <item>Calisthenics (moderate)</item>
+        <item>Calisthenics (vigorous)</item>
+        <item>Fencing</item>
+        <item>Football</item>
+        <item>Golf</item>
+        <item>Racquetball</item>
+        <item>Rock Climbing (low-moderate)</item>
+        <item>Rock Climbing (difficult)</item>
+        <item>Running (10 min/mile)</item>
+        <item>Running (7.5 min/mile)</item>
+        <item>Running (6 min/mile)</item>
+        <item>Running (5 min/mile)</item>
+        <item>Running (4.3 min/mile)</item>
         <item>Skateboarding</item>
+        <item>Soccer (general)</item>
+        <item>Soccer (competitive)</item>
+        <item>Softball</item>
+        <item>Swimming (light-moderate)</item>
+        <item>Swimming (competition)</item>
         <item>Tennis</item>
+        <item>Volleyball</item>
         <item>Walking</item>
-        <item>Swimming</item>
     </string-array>
 
 </resources>
