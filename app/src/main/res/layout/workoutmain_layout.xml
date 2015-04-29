@@ -3,7 +3,9 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -79,7 +81,7 @@
         android:layout_marginTop="20dp"
         android:textColor="#ff19c9ff" />
 </LinearLayout>
-
+</ScrollView>
 
 <ListView android:id="@+id/list_layout"
 android:layout_width="240dp"
