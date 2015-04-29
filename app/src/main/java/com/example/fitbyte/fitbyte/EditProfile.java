@@ -277,7 +277,7 @@ public class EditProfile extends Activity {
         }
 
         if ((((double)pounds/weeks)>2)&&(lose.isChecked())){
-            Toast.makeText(getApplicationContext(), "It is not recommended to lose more that 2 pounds a week. Please edit your goal",
+            Toast.makeText(getApplicationContext(), "It is not recommended to lose more than 2 pounds a week. Please edit your goal",
                     Toast.LENGTH_LONG).show();
             poundsEx = false;
             weeksEx = false;
