@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class NewWorkout extends MenuNavigation implements View.OnClickListener {
+public class NewWorkout extends Activity implements View.OnClickListener {
 
     public int k = 0;
     public static EditText editText1;

@@ -1,7 +1,11 @@
 package com.example.fitbyte.fitbyte;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -36,7 +40,7 @@ public class MenuNavigation extends ActionBarActivity {
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
 
         listView = (ListView)findViewById(R.id.list_layout);
-        mDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.drawable.ic_drawer,
+        mDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.drawable.ic_logo,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close){
 
             public void onDrawerClosed(View view){
@@ -62,8 +66,14 @@ public class MenuNavigation extends ActionBarActivity {
                 displayView(position);
             }
         });
+
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
+        //getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.ic_logo);
+
+
+
         //getActionBar().setDisplayHomeAsUpEnabled(true);
        // getActionBar().setHomeButtonEnabled(true);
     }
