@@ -24,7 +24,7 @@ public class myCalendar extends MenuNavigation {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
                 if(dayOfMonth == notes.day) {
-                    Toast.makeText(getApplicationContext(), myNotes.getString("note1", ""), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), myNotes.getString("note1", ""), Toast.LENGTH_LONG).show();
                 }
                 else{
                     Toast.makeText(getApplicationContext(),"No Note",Toast.LENGTH_SHORT).show();
