@@ -115,7 +115,6 @@ public class Homepage extends MenuNavigation {
         calBurned.setText(Integer.toString(dailyExercises.getInt("dailyExerciseValue", 0)));
         calConsumed.setText(Integer.toString(foodLogs.getInt("CaloriesConsumed",0)));
         net.setText(Integer.toString(foodLogs.getInt("CaloriesConsumed", 0) + dailyExercises.getInt("dailyExerciseValue", 0)));
-        //IntakeValue for the calorie intake, not yet working.
 
         EditProfile editProfile = new EditProfile();
         if(editProfile.visited){
