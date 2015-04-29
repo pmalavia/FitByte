@@ -50,6 +50,8 @@ public class EditProfile extends Activity {
     public static Bitmap bitmap;
     public static boolean visited = false;
 
+    private int pounds, weeks;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -230,7 +232,7 @@ public class EditProfile extends Activity {
 
         // CHECK Pounds
         try {
-            int pounds = Integer.parseInt(editPounds.getText().toString());
+            pounds = Integer.parseInt(editPounds.getText().toString());
             poundsEx = true;
             if (pounds > 400 || pounds < 1) {
                 editPounds.setTypeface(null, Typeface.BOLD);
@@ -244,7 +246,7 @@ public class EditProfile extends Activity {
 
         // CHECK Weeks
         try {
-            int weeks = Integer.parseInt(editWeeks.getText().toString());
+            weeks = Integer.parseInt(editWeeks.getText().toString());
             weeksEx = true;
             if (weeks > 400 || weeks < 1) {
                 editWeeks.setTypeface(null, Typeface.BOLD);
@@ -272,6 +274,13 @@ public class EditProfile extends Activity {
         }
         catch (Exception e) {
             Toast.makeText(getApplicationContext(), "Please enter a goal", Toast.LENGTH_LONG).show();
+        }
+
+        if ((((double)pounds/weeks)>2)&&(lose.isChecked())){
+            Toast.makeText(getApplicationContext(), "It is not recommended to lose more that 2 pounds a week. Please edit your goal",
+                    Toast.LENGTH_LONG).show();
+            poundsEx = false;
+            weeksEx = false;
         }
 
         if (ageEx && heightEx && weightEx && genderEx && activityEx && poundsEx && weeksEx && goalEx) {
