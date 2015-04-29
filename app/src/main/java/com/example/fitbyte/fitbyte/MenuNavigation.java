@@ -58,7 +58,7 @@ public class MenuNavigation extends ActionBarActivity {
 
 
         menu = new String[]{"Home", "Diary","Profile", "Workouts","Calendar","Reminders","Notes"};
-        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menu);
+        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_activated_1,menu);
         listView.setAdapter(adapter);
         listView.setSelector(android.R.color.holo_blue_dark);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
