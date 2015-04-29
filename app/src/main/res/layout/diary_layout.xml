@@ -108,7 +108,7 @@
                 android:background="@drawable/textview"
                 android:text="Breakfast"
                 android:id="@+id/diaryBreakfast"
-                />
+                android:textColor="#ff414141" />
 
             <Button
                 style="?android:textAppearanceSmall"
@@ -151,7 +151,7 @@
                 android:background="@drawable/textview"
                 android:text="Lunch"
                 android:id="@+id/diaryLunch"
-                />
+                android:textColor="#FF414141" />
 
             <Button
                 style="?android:textAppearanceSmall"
@@ -197,7 +197,7 @@
                 android:background="@drawable/textview"
                 android:text="Dinner"
                 android:id="@+id/diaryDinner"
-                />
+                android:textColor="#FF414141" />
 
             <Button
                 style="?android:textAppearanceSmall"
@@ -241,7 +241,7 @@
                 android:background="@drawable/textview"
                 android:text="Workouts"
                 android:id="@+id/diaryWorkout"
-                />
+                android:textColor="#FF414141" />
 
             <Button
                 style="?android:textAppearanceSmall"
@@ -293,7 +293,7 @@
                 android:background="@drawable/textview"
                 android:text="Exercises"
                 android:id="@+id/diaryExercise"
-                />
+                android:textColor="#FF414141" />
 
             <Button
                 style="?android:textAppearanceSmall"
@@ -320,5 +320,5 @@ android:layout_gravity="start"
 android:choiceMode="singleChoice"
 android:divider="@android:color/transparent"
 android:dividerHeight="0dp"
-android:background="#fff"/>
+    android:background="#000"/>
     </android.support.v4.widget.DrawerLayout>

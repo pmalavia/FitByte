@@ -122,7 +122,7 @@ public class Homepage extends MenuNavigation {
             profilePicture.setImageBitmap(editProfile.bitmap);
         }
         else {
-            profilePicture.setImageResource(R.drawable.ic_launcher);
+            profilePicture.setImageResource(R.drawable.ic_profile);
         }
 
     }

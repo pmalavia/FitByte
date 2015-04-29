@@ -1,5 +1,6 @@
 package com.example.fitbyte.fitbyte;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,7 +13,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class MyWorkout extends MenuNavigation {
+public class MyWorkout extends Activity {
 
     private NewWorkout newWorkout = new NewWorkout();
     private WorkoutMain ma = new WorkoutMain();
